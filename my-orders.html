@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Orders | NYRVA LIFE – Pure Essence of Herbs</title>
+  <meta name="description" content="View your NYRVA LIFE order history, current fulfillment status, and order details.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Browser Tab Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Client Draft Preview Notice -->
+<div class="draft-bar">
+  <div class="container">
+    <span>⚠️ DRAFT PREVIEW — All prices, ingredients, and policy terms are placeholders pending final confirmation by client.</span>
+  </div>
+</div>
+
+<!-- Top Announcement Bar -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span class="topbar-badge">100% Herbal</span>
+      <span>Pure Essence of Herbs for Men's Wellness &bull; Free Delivery Across India <span class="pending-tag">Pending Confirmation</span></span>
+    </div>
+    <div class="topbar-right">
+      <a href="tel:+918667698604" class="topbar-link">
+        <span>Need Assistance? Call / WhatsApp:</span>
+        <span class="topbar-phone">8667698604</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Header Navigation -->
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo-img" aria-label="NYRVA LIFE Home">
+      <img src="assets/logo.jpeg" alt="NYRVA LIFE – Pure Essence of Herbs">
+    </a>
+
+    <!-- Pure CSS Mobile Toggle (Zero JavaScript) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="my-orders.html" class="nav-account active" title="My Account">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span>My Account</span>
+      </a>
+      <a href="my-orders.html" class="nav-auth-link" style="color: var(--gold-dark); font-weight: 800;" title="My Orders">My Orders</a>
+      <a class="cart-btn" href="cart.html" title="View Shopping Cart">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        <span>Cart</span>
+        <span class="cart-count">2</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Breadcrumb Navigation -->
+<div class="page-head" style="padding: 24px 0 20px;">
+  <div class="container">
+    <div class="crumbs">
+      <a href="index.html">Home</a> / <a href="login.html">Account</a> / <span>My Orders</span>
+    </div>
+  </div>
+</div>
+
+<!-- My Orders Main Section -->
+<section class="section" style="padding-top: 36px; padding-bottom: 75px;">
+  <div class="container">
+
+    <!-- Top Heading & Supporting Text -->
+    <div class="checkout-header-intro">
+      <h1>MY ORDERS</h1>
+      <p>Track your NYRVA LIFE orders, fulfillment progress, and delivery details.</p>
+    </div>
+
+    <!-- Account Subnavigation Bar -->
+    <div class="account-nav-bar">
+      <a href="my-orders.html" class="account-nav-link active">
+        <span>📦</span> My Orders
+      </a>
+      <a href="order-details.html" class="account-nav-link">
+        <span>📍</span> Order Status &amp; Tracking
+      </a>
+      <a href="login.html" class="account-nav-link">
+        <span>👤</span> Profile Details
+      </a>
+      <a href="checkout.html" class="account-nav-link">
+        <span>🏠</span> Saved Addresses
+      </a>
+      <a href="shop.html" class="account-nav-link">
+        <span>🌿</span> Browse Products
+      </a>
+      <a href="login.html" class="account-nav-link" style="margin-left: auto; color: #a94442;">
+        <span>🚪</span> Sign In / Switch Account
+      </a>
+    </div>
+
+    <!-- Frontend Sample Data Notice Banner -->
+    <div style="background: var(--cream); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); padding: 12px 18px; margin-bottom: 24px; font-size: 0.86rem; color: var(--green-deep); line-height: 1.5; display: flex; align-items: flex-start; gap: 10px;">
+      <span style="font-size: 1.2rem; flex-shrink: 0;" aria-hidden="true">ℹ️</span>
+      <div>
+        <strong>Customer Order Status UI (Frontend Demo):</strong><br>
+        Below are sample customer orders illustrating the 6 fulfillment stages. Order statuses, timestamps, and tracking information are demo placeholders; live database records and real-time courier tracking will be connected during backend integration.
+      </div>
+    </div>
+
+    <!-- Order Status Badges Showcase Legend -->
+    <div class="status-legend-bar">
+      <div class="status-legend-title">Order Status Stages:</div>
+      <div class="status-legend-badges">
+        <span class="badge-status placed">Order Placed</span>
+        <span class="badge-status confirmed">Confirmed</span>
+        <span class="badge-status packed">Packed</span>
+        <span class="badge-status shipped">Shipped</span>
+        <span class="badge-status out-for-delivery">Out for Delivery</span>
+        <span class="badge-status delivered">Delivered</span>
+      </div>
+    </div>
+
+    <!-- Pure CSS State Switcher (Sample Orders vs Empty Orders State) -->
+    <input type="radio" name="orders_view_state" id="view-orders-list" class="orders-toggle-radio" checked>
+    <input type="radio" name="orders_view_state" id="view-orders-empty" class="orders-toggle-radio">
+
+    <div class="orders-view-tabs" role="tablist" aria-label="Order preview modes">
+      <label for="view-orders-list" class="orders-view-tab-btn" role="tab">
+        📦 Customer Orders List (3 Sample Orders)
+      </label>
+      <label for="view-orders-empty" class="orders-view-tab-btn" role="tab">
+        🛍️ Empty Orders State Preview
+      </label>
+    </div>
+
+    <!-- ======================================================================
+         STATE 1: Sample Order History Cards
+         ====================================================================== -->
+    <div class="orders-populated-view">
+
+      <!-- Order Card 1: Active Order - SHIPPED -->
+      <div class="my-order-card">
+        <div class="my-order-header">
+          <div class="my-order-meta-left">
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Order ID</span>
+              <span class="my-order-meta-val" style="color: var(--gold-dark); font-family: monospace; font-size: 1.05rem;">#NYR-84291</span>
+            </div>
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Order Date</span>
+              <span class="my-order-meta-val">02 Nov 2026</span>
+            </div>
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Quantity</span>
+              <span class="my-order-meta-val">2 Items</span>
+            </div>
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Total Amount</span>
+              <span class="my-order-meta-val">To be confirmed</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <span class="badge-status shipped">Shipped</span>
+            <span style="font-size: 0.8rem; color: var(--muted); font-style: italic;">Estimated: 05 Nov 2026</span>
+          </div>
+        </div>
+
+        <div class="my-order-body">
+          <div style="font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+            Order Items
+          </div>
+
+          <!-- Product 1: Powder -->
+          <div class="order-product-row">
+            <div class="order-product-thumb">
+              <img src="assets/images/product-powder.jpg" alt="Men's Wellness Powder 300 g" loading="lazy">
+            </div>
+            <div class="order-product-info">
+              <h4><a href="product-powder.html">Men's Wellness Powder</a></h4>
+              <div class="order-product-meta">Pack Size: 300 g container &bull; Quantity: 1</div>
+            </div>
+            <div class="order-product-price">
+              Price to be updated
+            </div>
+          </div>
+
+          <!-- Product 2: Capsules -->
+          <div class="order-product-row">
+            <div class="order-product-thumb">
+              <img src="assets/images/product-capsules.jpg" alt="Men's Wellness Capsules 30 Count" loading="lazy">
+            </div>
+            <div class="order-product-info">
+              <h4><a href="product-capsules.html">Men's Wellness Capsules</a></h4>
+              <div class="order-product-meta">Pack Size: 30 capsules per container &bull; Quantity: 1</div>
+            </div>
+            <div class="order-product-price">
+              Price to be updated
+            </div>
+          </div>
+        </div>
+
+        <div class="my-order-footer">
+          <div style="font-size: 0.82rem; color: var(--green-deep); display: flex; align-items: center; gap: 6px;">
+            <span>🚚</span> <strong>Status:</strong> In transit with courier partner &bull; Package departed fulfillment hub
+          </div>
+
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <a href="order-details.html" class="btn gold" style="padding: 10px 22px; font-size: 0.9rem; font-weight: 700;">
+              View Order Details →
+            </a>
+            <a href="https://wa.me/918667698604" target="_blank" rel="noopener" class="btn outline" style="padding: 10px 16px; font-size: 0.86rem;">
+              💬 Track on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Card 2: Active Order - OUT FOR DELIVERY -->
+      <div class="my-order-card">
+        <div class="my-order-header">
+          <div class="my-order-meta-left">
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Order ID</span>
+              <span class="my-order-meta-val" style="color: var(--gold-dark); font-family: monospace; font-size: 1.05rem;">#NYR-82419</span>
+            </div>
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Order Date</span>
+              <span class="my-order-meta-val">01 Nov 2026</span>
+            </div>
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Quantity</span>
+              <span class="my-order-meta-val">2 Containers</span>
+            </div>
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Total Amount</span>
+              <span class="my-order-meta-val">To be confirmed</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <span class="badge-status out-for-delivery">Out for Delivery</span>
+            <span style="font-size: 0.8rem; color: #155724; font-weight: 700;">Arriving Today</span>
+          </div>
+        </div>
+
+        <div class="my-order-body">
+          <div style="font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+            Order Items
+          </div>
+
+          <!-- Product: Powder 2x -->
+          <div class="order-product-row">
+            <div class="order-product-thumb">
+              <img src="assets/images/product-powder.jpg" alt="Men's Wellness Powder 300 g" loading="lazy">
+            </div>
+            <div class="order-product-info">
+              <h4><a href="product-powder.html">Men's Wellness Powder</a></h4>
+              <div class="order-product-meta">Pack Size: 300 g container &bull; Quantity: 2</div>
+            </div>
+            <div class="order-product-price">
+              Price to be updated
+            </div>
+          </div>
+        </div>
+
+        <div class="my-order-footer">
+          <div style="font-size: 0.82rem; color: #155724; display: flex; align-items: center; gap: 6px;">
+            <span>📦</span> <strong>Status:</strong> Assigned to local courier agent &bull; Out for doorstep delivery today
+          </div>
+
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <a href="order-details.html#stage-5" class="btn gold" style="padding: 10px 22px; font-size: 0.9rem; font-weight: 700;">
+              View Order Details →
+            </a>
+            <a href="https://wa.me/918667698604" target="_blank" rel="noopener" class="btn outline" style="padding: 10px 16px; font-size: 0.86rem;">
+              💬 Need Help?
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Card 3: Past Order - DELIVERED -->
+      <div class="my-order-card">
+        <div class="my-order-header">
+          <div class="my-order-meta-left">
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Order ID</span>
+              <span class="my-order-meta-val" style="color: var(--gold-dark); font-family: monospace; font-size: 1.05rem;">#NYR-79012</span>
+            </div>
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Order Date</span>
+              <span class="my-order-meta-val">20 Oct 2026</span>
+            </div>
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Quantity</span>
+              <span class="my-order-meta-val">1 Container</span>
+            </div>
+            <div class="my-order-meta-col">
+              <span class="my-order-meta-label">Total Amount</span>
+              <span class="my-order-meta-val">To be confirmed</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <span class="badge-status delivered">Delivered</span>
+            <span style="font-size: 0.8rem; color: var(--muted);">Delivered on 24 Oct 2026</span>
+          </div>
+        </div>
+
+        <div class="my-order-body">
+          <div style="font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+            Order Items
+          </div>
+
+          <!-- Product: Capsules 1x -->
+          <div class="order-product-row">
+            <div class="order-product-thumb">
+              <img src="assets/images/product-capsules.jpg" alt="Men's Wellness Capsules 30 Count" loading="lazy">
+            </div>
+            <div class="order-product-info">
+              <h4><a href="product-capsules.html">Men's Wellness Capsules</a></h4>
+              <div class="order-product-meta">Pack Size: 30 capsules per container &bull; Quantity: 1</div>
+            </div>
+            <div class="order-product-price">
+              Price to be updated
+            </div>
+          </div>
+        </div>
+
+        <div class="my-order-footer">
+          <div style="font-size: 0.82rem; color: var(--green-deep); display: flex; align-items: center; gap: 6px;">
+            <span>✓</span> <strong>Status:</strong> Handed over to recipient &bull; Thank you for ordering with NYRVA LIFE
+          </div>
+
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <a href="order-details.html#stage-6" class="btn gold" style="padding: 10px 22px; font-size: 0.9rem; font-weight: 700;">
+              View Order Details →
+            </a>
+            <a href="product-capsules.html" class="btn outline" style="padding: 10px 16px; font-size: 0.86rem;">
+              Buy Again
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Navigation Actions -->
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 28px;">
+        <a href="shop.html" class="btn outline" style="padding: 11px 22px;">
+          ← Continue Shopping (Browse Products)
+        </a>
+        <div style="font-size: 0.88rem; color: var(--muted);">
+          Questions regarding dispatch or delivery? Contact us on WhatsApp: <strong style="color: var(--green-deep);">8667698604</strong>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ======================================================================
+         STATE 2: Empty Orders Section
+         ====================================================================== -->
+    <div class="orders-empty-view">
+
+      <div class="empty-orders-box">
+        <div class="empty-orders-illustration" aria-hidden="true">
+          <img src="assets/images/empty-orders.svg" alt="No Orders Illustration" width="170" height="170" loading="lazy">
+        </div>
+        <h2>NO ORDERS YET</h2>
+        <p>You haven't placed any orders yet. Explore our natural men's herbal wellness formulations and start shopping today.</p>
+
+        <div>
+          <a href="shop.html" class="btn gold" style="padding: 14px 32px; font-size: 1rem; font-weight: 700; letter-spacing: 0.5px; display: inline-block;">
+            START SHOPPING
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Multi-Section Premium Footer -->
+<footer>
+  <div class="container">
+    <div class="cols">
+      <!-- Col 1: Brand Info -->
+      <div>
+        <div class="footer-logo-wrap" style="margin-bottom: 14px;">
+          <a href="index.html" aria-label="NYRVA LIFE Home">
+            <img src="assets/logo.jpeg" alt="NYRVA LIFE Logo" style="height: 48px; border-radius: var(--radius-sm); border: 1.5px solid var(--gold);">
+          </a>
+        </div>
+        <div class="footer-brand-title">NYRVA LIFE</div>
+        <div class="footer-brand-tagline">PURE ESSENCE OF HERBS</div>
+        <p>Herbal formulations crafted for men's wellness. Starting with our signature powder and capsule formats, with more wellness innovations coming soon.</p>
+        <div style="margin-top: 18px;">
+          <a class="btn wa" href="https://wa.me/918667698604" target="_blank" rel="noopener" style="padding: 8px 16px; font-size: 0.85rem; display: inline-flex;">
+            💬 WhatsApp: 8667698604
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="product-powder.html">Men's Wellness Powder</a></li>
+          <li><a href="product-capsules.html">Men's Wellness Capsules</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Customer Support -->
+      <div>
+        <h4>Customer Support</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="my-orders.html">My Orders</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="cart.html">View Shopping Cart</a></li>
+          <li><a href="checkout.html">Checkout Flow</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Legal & Policies -->
+      <div>
+        <h4>Legal &amp; Policies</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="shipping-policy.html">Shipping Policy</a></li>
+          <li><a href="return-refund-policy.html">Return &amp; Refund</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Helpline & Direct Assistance Strip -->
+    <div class="footer-helpline-strip">
+      <div class="footer-helpline-text">
+        <strong>Need Customer Assistance?</strong> Our support team is ready to help you with order queries, product guidance, and dispatch information.
+      </div>
+      <div class="footer-helpline-actions">
+        <a href="tel:+918667698604" class="btn outline" style="color: #fff; border-color: var(--gold); padding: 8px 18px; font-size: 0.85rem;">
+          📞 Call: 8667698604
+        </a>
+        <a href="https://wa.me/918667698604" target="_blank" rel="noopener" class="btn wa" style="padding: 8px 18px; font-size: 0.85rem;">
+          💬 WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Row: Disclaimer & Copyright -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-copy">
+        &copy; 2026 NYRVA LIFE. All Rights Reserved. Pure Essence of Herbs.
+      </div>
+      <div class="footer-bottom-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span>&bull;</span>
+        <a href="terms-and-conditions.html">Terms of Service</a>
+        <span>&bull;</span>
+        <a href="shipping-policy.html">Shipping</a>
+        <span>&bull;</span>
+        <a href="return-refund-policy.html">Returns</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

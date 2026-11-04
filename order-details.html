@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Details &amp; Status Tracking | NYRVA LIFE – Pure Essence of Herbs</title>
+  <meta name="description" content="Track your NYRVA LIFE customer order status, shipment progress, and delivery details.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Browser Tab Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Client Draft Preview Notice -->
+<div class="draft-bar">
+  <div class="container">
+    <span>⚠️ DRAFT PREVIEW — All prices, ingredients, and policy terms are placeholders pending final confirmation by client.</span>
+  </div>
+</div>
+
+<!-- Top Announcement Bar -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span class="topbar-badge">100% Herbal</span>
+      <span>Pure Essence of Herbs for Men's Wellness &bull; Free Delivery Across India <span class="pending-tag">Pending Confirmation</span></span>
+    </div>
+    <div class="topbar-right">
+      <a href="tel:+918667698604" class="topbar-link">
+        <span>Need Assistance? Call / WhatsApp:</span>
+        <span class="topbar-phone">8667698604</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Header Navigation -->
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo-img" aria-label="NYRVA LIFE Home">
+      <img src="assets/logo.jpeg" alt="NYRVA LIFE – Pure Essence of Herbs">
+    </a>
+
+    <!-- Pure CSS Mobile Toggle (Zero JavaScript) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="my-orders.html" class="nav-account active" title="My Account">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span>My Account</span>
+      </a>
+      <a href="my-orders.html" class="nav-auth-link" style="color: var(--gold-dark); font-weight: 800;" title="My Orders">My Orders</a>
+      <a class="cart-btn" href="cart.html" title="View Shopping Cart">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        <span>Cart</span>
+        <span class="cart-count">2</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Breadcrumb Navigation -->
+<div class="page-head" style="padding: 24px 0 20px;">
+  <div class="container">
+    <div class="crumbs">
+      <a href="index.html">Home</a> / <a href="my-orders.html">My Orders</a> / <span>Order #NYR-84291 Details</span>
+    </div>
+  </div>
+</div>
+
+<!-- Main Order Details Section -->
+<section class="section" style="padding-top: 36px; padding-bottom: 75px;">
+  <div class="container">
+
+    <!-- Top Heading & Supporting Text -->
+    <div class="checkout-header-intro" style="margin-bottom: 24px;">
+      <h1>ORDER DETAILS &amp; STATUS TRACKING</h1>
+      <p>Real-time fulfillment milestone tracking and delivery summary for your order.</p>
+    </div>
+
+    <!-- Frontend Sample Data Notice Banner -->
+    <div style="background: var(--cream); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); padding: 12px 18px; margin-bottom: 28px; font-size: 0.86rem; color: var(--green-deep); line-height: 1.5; display: flex; align-items: flex-start; gap: 10px;">
+      <span style="font-size: 1.2rem; flex-shrink: 0;" aria-hidden="true">ℹ️</span>
+      <div>
+        <strong>Customer Order Status UI (Frontend Only):</strong><br>
+        This page demonstrates the 6-stage order tracking progress timeline. Order details, timestamps, delivery address, and courier data are clearly labelled sample placeholders. Real-time courier API integration and database storage will be connected during backend development.
+      </div>
+    </div>
+
+    <!-- 1. Order Summary Hero Card -->
+    <div class="order-summary-hero">
+      <div>
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <h2 style="font-family: var(--font-heading); font-size: 1.45rem; color: var(--green-deep); margin: 0;">
+            ORDER <span style="font-family: monospace; color: var(--gold-dark);">#NYR-84291</span>
+          </h2>
+          <span class="badge-status shipped">Shipped (In Transit)</span>
+        </div>
+
+        <div class="order-summary-meta">
+          <div class="order-summary-col">
+            <span class="order-summary-label">Order Date</span>
+            <span class="order-summary-val">02 Nov 2026, 10:45 AM</span>
+          </div>
+          <div class="order-summary-col">
+            <span class="order-summary-label">Total Quantity</span>
+            <span class="order-summary-val">2 Items (1 Powder, 1 Capsules)</span>
+          </div>
+          <div class="order-summary-col">
+            <span class="order-summary-label">Payment Status</span>
+            <span class="order-summary-val" style="color: #1e5a1e;">✓ Paid via UPI (Sample)</span>
+          </div>
+          <div class="order-summary-col">
+            <span class="order-summary-label">Courier Partner</span>
+            <span class="order-summary-val">Surface Express (Sample)</span>
+          </div>
+          <div class="order-summary-col">
+            <span class="order-summary-label">Tracking AWB</span>
+            <span class="order-summary-val" style="font-family: monospace;">NYR-AWB-84291-EXP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estimated Delivery Badge -->
+      <div class="est-delivery-badge">
+        <div class="est-delivery-label">Estimated Delivery Date (Placeholder)</div>
+        <div class="est-delivery-val">05 Nov 2026</div>
+        <div style="font-size: 0.76rem; color: var(--muted); margin-top: 4px;">Standard surface dispatch across India</div>
+      </div>
+    </div>
+
+    <!-- 2. The 6-Stage Order Status Progress Timeline -->
+    <div class="timeline-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 8px;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--green-deep); margin: 0; display: flex; align-items: center; gap: 8px;">
+          <span>📍</span> ORDER STATUS TIMELINE (6 STAGES)
+        </h3>
+        <span style="font-size: 0.82rem; color: var(--muted); font-style: italic;">
+          Current Stage: <strong>Shipped (Stage 4 of 6)</strong>
+        </span>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 24px;">
+        Visual indicator tracking your order through all fulfillment and delivery milestones.
+      </p>
+
+      <!-- Pure CSS Interactive Stage Switcher for Client Demo -->
+      <input type="radio" name="timeline_stage_selector" id="stage-1" class="timeline-stage-radios">
+      <input type="radio" name="timeline_stage_selector" id="stage-2" class="timeline-stage-radios">
+      <input type="radio" name="timeline_stage_selector" id="stage-3" class="timeline-stage-radios">
+      <input type="radio" name="timeline_stage_selector" id="stage-4" class="timeline-stage-radios" checked>
+      <input type="radio" name="timeline_stage_selector" id="stage-5" class="timeline-stage-radios">
+      <input type="radio" name="timeline_stage_selector" id="stage-6" class="timeline-stage-radios">
+
+      <div style="text-align: center; margin-bottom: 16px;">
+        <div style="font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px;">
+          Interactive Stage Preview Switcher (Click any stage below to test):
+        </div>
+        <div class="stage-preview-nav">
+          <label for="stage-1" class="stage-preview-btn">1. Placed</label>
+          <label for="stage-2" class="stage-preview-btn">2. Confirmed</label>
+          <label for="stage-3" class="stage-preview-btn">3. Packed</label>
+          <label for="stage-4" class="stage-preview-btn">4. Shipped (Active Demo)</label>
+          <label for="stage-5" class="stage-preview-btn">5. Out for Delivery</label>
+          <label for="stage-6" class="stage-preview-btn">6. Delivered</label>
+        </div>
+      </div>
+
+      <!-- VIEW 4: Current Stage is SHIPPED (Default) -->
+      <div class="timeline-stage-view stage-view-4">
+        <div class="timeline-six-track">
+          <div class="progress-line-fill" style="width: 58%;"></div>
+
+          <!-- Stage 1: Order Placed -->
+          <div class="timeline-six-step completed">
+            <div class="timeline-six-dot">✓</div>
+            <div class="timeline-six-title">1. Order Placed</div>
+            <div class="timeline-six-desc">Order registered &amp; paid</div>
+            <div class="timeline-six-time">02 Nov, 10:45 AM</div>
+          </div>
+
+          <!-- Stage 2: Order Confirmed -->
+          <div class="timeline-six-step completed">
+            <div class="timeline-six-dot">✓</div>
+            <div class="timeline-six-title">2. Confirmed</div>
+            <div class="timeline-six-desc">Verified by fulfillment</div>
+            <div class="timeline-six-time">02 Nov, 11:30 AM</div>
+          </div>
+
+          <!-- Stage 3: Packed -->
+          <div class="timeline-six-step completed">
+            <div class="timeline-six-dot">✓</div>
+            <div class="timeline-six-title">3. Packed</div>
+            <div class="timeline-six-desc">Sealed in tamper box</div>
+            <div class="timeline-six-time">03 Nov, 09:15 AM</div>
+          </div>
+
+          <!-- Stage 4: Shipped (CURRENT ACTIVE STAGE) -->
+          <div class="timeline-six-step current">
+            <div class="timeline-six-dot">🚚</div>
+            <div class="timeline-six-title">4. Shipped</div>
+            <div class="timeline-six-desc">In transit with courier</div>
+            <div class="timeline-six-time">03 Nov, 02:45 PM</div>
+            <span class="current-stage-pill">Current Stage</span>
+          </div>
+
+          <!-- Stage 5: Out for Delivery (Upcoming) -->
+          <div class="timeline-six-step upcoming">
+            <div class="timeline-six-dot">📦</div>
+            <div class="timeline-six-title">5. Out for Delivery</div>
+            <div class="timeline-six-desc">Assigned to courier agent</div>
+            <div class="timeline-six-time">Expected 05 Nov</div>
+          </div>
+
+          <!-- Stage 6: Delivered (Upcoming) -->
+          <div class="timeline-six-step upcoming">
+            <div class="timeline-six-dot">🏠</div>
+            <div class="timeline-six-title">6. Delivered</div>
+            <div class="timeline-six-desc">Delivered to customer</div>
+            <div class="timeline-six-time">Expected 05 Nov</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW 1: Stage 1 Placed -->
+      <div class="timeline-stage-view stage-view-1">
+        <div class="timeline-six-track">
+          <div class="progress-line-fill" style="width: 5%;"></div>
+          <div class="timeline-six-step current">
+            <div class="timeline-six-dot">📝</div>
+            <div class="timeline-six-title">1. Order Placed</div>
+            <div class="timeline-six-desc">Order registered &amp; paid</div>
+            <div class="timeline-six-time">Just now</div>
+            <span class="current-stage-pill">Current Stage</span>
+          </div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">2</div><div class="timeline-six-title">2. Confirmed</div><div class="timeline-six-desc">Pending verification</div></div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">3</div><div class="timeline-six-title">3. Packed</div><div class="timeline-six-desc">Pending packaging</div></div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">4</div><div class="timeline-six-title">4. Shipped</div><div class="timeline-six-desc">Pending dispatch</div></div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">5</div><div class="timeline-six-title">5. Out for Delivery</div><div class="timeline-six-desc">Pending arrival</div></div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">6</div><div class="timeline-six-title">6. Delivered</div><div class="timeline-six-desc">Pending delivery</div></div>
+        </div>
+      </div>
+
+      <!-- VIEW 2: Stage 2 Confirmed -->
+      <div class="timeline-stage-view stage-view-2">
+        <div class="timeline-six-track">
+          <div class="progress-line-fill" style="width: 22%;"></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">1. Order Placed</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step current">
+            <div class="timeline-six-dot">🛡️</div>
+            <div class="timeline-six-title">2. Confirmed</div>
+            <div class="timeline-six-desc">Verified by fulfillment</div>
+            <span class="current-stage-pill">Current Stage</span>
+          </div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">3</div><div class="timeline-six-title">3. Packed</div><div class="timeline-six-desc">Pending packaging</div></div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">4</div><div class="timeline-six-title">4. Shipped</div><div class="timeline-six-desc">Pending dispatch</div></div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">5</div><div class="timeline-six-title">5. Out for Delivery</div><div class="timeline-six-desc">Pending arrival</div></div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">6</div><div class="timeline-six-title">6. Delivered</div><div class="timeline-six-desc">Pending delivery</div></div>
+        </div>
+      </div>
+
+      <!-- VIEW 3: Stage 3 Packed -->
+      <div class="timeline-stage-view stage-view-3">
+        <div class="timeline-six-track">
+          <div class="progress-line-fill" style="width: 40%;"></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">1. Order Placed</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">2. Confirmed</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step current">
+            <div class="timeline-six-dot">📦</div>
+            <div class="timeline-six-title">3. Packed</div>
+            <div class="timeline-six-desc">Sealed in tamper box</div>
+            <span class="current-stage-pill">Current Stage</span>
+          </div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">4</div><div class="timeline-six-title">4. Shipped</div><div class="timeline-six-desc">Pending courier</div></div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">5</div><div class="timeline-six-title">5. Out for Delivery</div><div class="timeline-six-desc">Pending arrival</div></div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">6</div><div class="timeline-six-title">6. Delivered</div><div class="timeline-six-desc">Pending delivery</div></div>
+        </div>
+      </div>
+
+      <!-- VIEW 5: Stage 5 Out for Delivery -->
+      <div class="timeline-stage-view stage-view-5">
+        <div class="timeline-six-track">
+          <div class="progress-line-fill" style="width: 78%;"></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">1. Order Placed</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">2. Confirmed</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">3. Packed</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">4. Shipped</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step current">
+            <div class="timeline-six-dot">🛵</div>
+            <div class="timeline-six-title">5. Out for Delivery</div>
+            <div class="timeline-six-desc">With courier agent today</div>
+            <span class="current-stage-pill">Current Stage</span>
+          </div>
+          <div class="timeline-six-step upcoming"><div class="timeline-six-dot">6</div><div class="timeline-six-title">6. Delivered</div><div class="timeline-six-desc">Expected by evening</div></div>
+        </div>
+      </div>
+
+      <!-- VIEW 6: Stage 6 Delivered -->
+      <div class="timeline-stage-view stage-view-6">
+        <div class="timeline-six-track">
+          <div class="progress-line-fill" style="width: 96%; background: #1E5A1E;"></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">1. Order Placed</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">2. Confirmed</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">3. Packed</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">4. Shipped</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step completed"><div class="timeline-six-dot">✓</div><div class="timeline-six-title">5. Out for Delivery</div><div class="timeline-six-desc">Completed</div></div>
+          <div class="timeline-six-step completed">
+            <div class="timeline-six-dot" style="background: var(--gold); border-color: var(--gold-dark); color: #fff;">🎉</div>
+            <div class="timeline-six-title" style="color: #1E5A1E; font-weight: 800;">6. Delivered</div>
+            <div class="timeline-six-desc">Handed to recipient</div>
+            <span class="current-stage-pill" style="background: #1E5A1E; color: #fff;">Order Fulfilled</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. Two-Column Layout: Products & Event Log (Left) | Delivery & Payment (Right) -->
+    <div class="order-details-layout">
+
+      <!-- Left Column: Products in Order & Milestone Event Log -->
+      <div>
+
+        <!-- Products in this Order Card -->
+        <div class="order-info-card">
+          <h3>
+            <span>🛍️</span> PRODUCTS IN THIS ORDER (2)
+          </h3>
+
+          <!-- Product 1: Men's Wellness Powder -->
+          <div class="order-product-row">
+            <div class="order-product-thumb">
+              <img src="assets/images/product-powder.jpg" alt="Men's Wellness Powder 300 g Container" loading="lazy">
+            </div>
+            <div class="order-product-info">
+              <h4><a href="product-powder.html">Men's Wellness Powder</a></h4>
+              <div class="order-product-meta">
+                Pack Size: <strong>300 g Container</strong> &bull; Quantity: <strong>1</strong>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--green-deep); margin-top: 4px;">
+                🌿 100% Herbal Daily Stamina Formulation
+              </div>
+            </div>
+            <div class="order-product-price">
+              Price to be updated
+            </div>
+          </div>
+
+          <!-- Product 2: Men's Wellness Capsules -->
+          <div class="order-product-row">
+            <div class="order-product-thumb">
+              <img src="assets/images/product-capsules.jpg" alt="Men's Wellness Capsules 30 Count" loading="lazy">
+            </div>
+            <div class="order-product-info">
+              <h4><a href="product-capsules.html">Men's Wellness Capsules</a></h4>
+              <div class="order-product-meta">
+                Pack Size: <strong>30 Capsules per Container</strong> &bull; Quantity: <strong>1</strong>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--green-deep); margin-top: 4px;">
+                🌿 Pure Botanical Daily Vitality &amp; Balance
+              </div>
+            </div>
+            <div class="order-product-price">
+              Price to be updated
+            </div>
+          </div>
+
+          <div style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <span style="font-size: 0.86rem; color: var(--muted);">Discreet herbal packaging with tamper-evident seal</span>
+            <a href="shop.html" class="link-continue-shopping" style="font-size: 0.86rem;">Browse All Products →</a>
+          </div>
+        </div>
+
+        <!-- Detailed Milestone Event Log Card -->
+        <div class="order-info-card">
+          <h3>
+            <span>📜</span> DETAILED TRACKING ACTIVITY LOG
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 18px;">
+            Sequential fulfillment events for Order #NYR-84291.
+          </p>
+
+          <div class="event-log-list">
+            <!-- Event 4 (Latest Active) -->
+            <div class="event-log-item active">
+              <div class="event-log-dot">🚚</div>
+              <div class="event-log-content">
+                <div class="event-log-title">Handed Over to Courier &bull; In Transit</div>
+                <div class="event-log-time">03 Nov 2026, 02:45 PM &bull; Central Logistics Hub, Chennai</div>
+                <div class="event-log-desc">
+                  Package has departed the main facility via Surface Express (AWB: NYR-AWB-84291-EXP). On track for scheduled delivery to Anna Nagar, Chennai.
+                </div>
+              </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="event-log-item">
+              <div class="event-log-dot">📦</div>
+              <div class="event-log-content">
+                <div class="event-log-title">Quality Inspected &amp; Packed</div>
+                <div class="event-log-time">03 Nov 2026, 09:15 AM &bull; NYRVA LIFE Herbal Fulfillment Center</div>
+                <div class="event-log-desc">
+                  Both items (300 g Powder &amp; 30 Capsules) sealed in discrete unmarked box with security tape.
+                </div>
+              </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="event-log-item">
+              <div class="event-log-dot">✓</div>
+              <div class="event-log-content">
+                <div class="event-log-title">Order Confirmed by Team</div>
+                <div class="event-log-time">02 Nov 2026, 11:30 AM &bull; Customer Care Desk</div>
+                <div class="event-log-desc">
+                  Customer details verified and order queued for packaging.
+                </div>
+              </div>
+            </div>
+
+            <!-- Event 1 -->
+            <div class="event-log-item">
+              <div class="event-log-dot">✓</div>
+              <div class="event-log-content">
+                <div class="event-log-title">Order Placed Successfully</div>
+                <div class="event-log-time">02 Nov 2026, 10:45 AM &bull; Online Web Checkout</div>
+                <div class="event-log-desc">
+                  Order registered and payment confirmed via UPI.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Delivery Address, Payment & Order Actions -->
+      <div>
+
+        <!-- Delivery Address Card -->
+        <div class="order-info-card">
+          <h3>
+            <span>📍</span> DELIVERY ADDRESS
+          </h3>
+
+          <div class="delivery-details-list">
+            <div class="delivery-detail-item">
+              <span class="delivery-detail-label">Recipient:</span>
+              <span class="delivery-detail-val" style="font-weight: 700; color: var(--green-deep);">Sangeetha M (Sample Customer)</span>
+            </div>
+            <div class="delivery-detail-item">
+              <span class="delivery-detail-label">Address:</span>
+              <span class="delivery-detail-val">Plot No. 42, 2nd Main Road, Anna Nagar, Chennai, Tamil Nadu - 600040</span>
+            </div>
+            <div class="delivery-detail-item">
+              <span class="delivery-detail-label">Mobile:</span>
+              <span class="delivery-detail-val">+91 9876543210</span>
+            </div>
+            <div class="delivery-detail-item">
+              <span class="delivery-detail-label">Email:</span>
+              <span class="delivery-detail-val">customer@example.com</span>
+            </div>
+            <div class="delivery-detail-item">
+              <span class="delivery-detail-label">Delivery Type:</span>
+              <span class="delivery-detail-val">Standard Surface Express Delivery across India</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--border-light); font-size: 0.8rem; color: var(--muted);">
+            *Packages are shipped in tamper-evident, unmarked boxes to safeguard customer privacy.
+          </div>
+        </div>
+
+        <!-- Payment Status Card -->
+        <div class="order-info-card">
+          <h3>
+            <span>💳</span> PAYMENT DETAILS
+          </h3>
+
+          <div class="delivery-details-list" style="margin-bottom: 16px;">
+            <div class="delivery-detail-item">
+              <span class="delivery-detail-label">Method:</span>
+              <span class="delivery-detail-val">UPI (Google Pay / PhonePe Sample)</span>
+            </div>
+            <div class="delivery-detail-item">
+              <span class="delivery-detail-label">Status:</span>
+              <span class="delivery-detail-val" style="color: #1E5A1E; font-weight: 700;">✓ Paid &amp; Confirmed (Demo)</span>
+            </div>
+            <div class="delivery-detail-item">
+              <span class="delivery-detail-label">Transaction ID:</span>
+              <span class="delivery-detail-val" style="font-family: monospace;">TXN-NYR-938210</span>
+            </div>
+          </div>
+
+          <div class="cart-summary-line">
+            <span>Subtotal (2 Items)</span>
+            <strong style="color: var(--gold-dark);">To be confirmed</strong>
+          </div>
+          <div class="cart-summary-line">
+            <span>Delivery Charges</span>
+            <span style="color: var(--muted); font-style: italic;">Free Delivery</span>
+          </div>
+          <div class="cart-summary-line total">
+            <span>Total Paid</span>
+            <span>To be confirmed</span>
+          </div>
+
+          <div style="margin-top: 14px; font-size: 0.78rem; color: var(--muted); font-style: italic;">
+            *Sample frontend billing presentation. Commercial pricing pending final client launch confirmation.
+          </div>
+        </div>
+
+        <!-- Next Actions Card -->
+        <div class="order-actions-card">
+          <h4>NEED HELP WITH THIS ORDER?</h4>
+          <p>Our herbal care support team is available via WhatsApp or direct phone call.</p>
+
+          <div class="order-btn-group">
+            <a href="https://wa.me/918667698604?text=Hi%20NYRVA%20LIFE%2C%20I%20have%20an%20enquiry%20regarding%20Order%20%23NYR-84291" target="_blank" rel="noopener" class="btn wa block" style="text-align: center; font-size: 0.95rem; padding: 13px 20px;">
+              💬 Enquire on WhatsApp: 8667698604
+            </a>
+            <a href="my-orders.html" class="btn outline block" style="text-align: center; font-size: 0.92rem; padding: 12px 18px;">
+              ← Back to My Orders
+            </a>
+            <a href="shop.html" class="btn gold block" style="text-align: center; font-size: 0.92rem; padding: 12px 18px;">
+              Continue Shopping
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Multi-Section Premium Footer -->
+<footer>
+  <div class="container">
+    <div class="cols">
+      <!-- Col 1: Brand Info -->
+      <div>
+        <div class="footer-logo-wrap" style="margin-bottom: 14px;">
+          <a href="index.html" aria-label="NYRVA LIFE Home">
+            <img src="assets/logo.jpeg" alt="NYRVA LIFE Logo" style="height: 48px; border-radius: var(--radius-sm); border: 1.5px solid var(--gold);">
+          </a>
+        </div>
+        <div class="footer-brand-title">NYRVA LIFE</div>
+        <div class="footer-brand-tagline">PURE ESSENCE OF HERBS</div>
+        <p>Herbal formulations crafted for men's wellness. Starting with our signature powder and capsule formats, with more wellness innovations coming soon.</p>
+        <div style="margin-top: 18px;">
+          <a class="btn wa" href="https://wa.me/918667698604" target="_blank" rel="noopener" style="padding: 8px 16px; font-size: 0.85rem; display: inline-flex;">
+            💬 WhatsApp: 8667698604
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="product-powder.html">Men's Wellness Powder</a></li>
+          <li><a href="product-capsules.html">Men's Wellness Capsules</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Customer Support -->
+      <div>
+        <h4>Customer Support</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="my-orders.html">My Orders</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="cart.html">View Shopping Cart</a></li>
+          <li><a href="checkout.html">Checkout Flow</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Legal & Policies -->
+      <div>
+        <h4>Legal &amp; Policies</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="shipping-policy.html">Shipping Policy</a></li>
+          <li><a href="return-refund-policy.html">Return &amp; Refund</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Helpline & Direct Assistance Strip -->
+    <div class="footer-helpline-strip">
+      <div class="footer-helpline-text">
+        <strong>Need Customer Assistance?</strong> Our support team is ready to help you with order queries, product guidance, and dispatch information.
+      </div>
+      <div class="footer-helpline-actions">
+        <a href="tel:+918667698604" class="btn outline" style="color: #fff; border-color: var(--gold); padding: 8px 18px; font-size: 0.85rem;">
+          📞 Call: 8667698604
+        </a>
+        <a href="https://wa.me/918667698604" target="_blank" rel="noopener" class="btn wa" style="padding: 8px 18px; font-size: 0.85rem;">
+          💬 WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Row: Disclaimer & Copyright -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-copy">
+        &copy; 2026 NYRVA LIFE. All Rights Reserved. Pure Essence of Herbs.
+      </div>
+      <div class="footer-bottom-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span>&bull;</span>
+        <a href="terms-and-conditions.html">Terms of Service</a>
+        <span>&bull;</span>
+        <a href="shipping-policy.html">Shipping</a>
+        <span>&bull;</span>
+        <a href="return-refund-policy.html">Returns</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

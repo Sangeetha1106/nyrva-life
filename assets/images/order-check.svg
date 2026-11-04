@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%" fill="none" aria-label="NYRVA LIFE Order Confirmation Check">
+  <defs>
+    <linearGradient id="chkGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D7A2D" />
+      <stop offset="100%" stop-color="#143D14" />
+    </linearGradient>
+    <linearGradient id="chkGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C768" />
+      <stop offset="50%" stop-color="#C8A02E" />
+      <stop offset="100%" stop-color="#9E781B" />
+    </linearGradient>
+    <filter id="chkShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#143D14" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <!-- Outer Cream Halo -->
+  <circle cx="60" cy="60" r="54" fill="#FDF8E8" stroke="#E6DAB8" stroke-width="1.5" />
+
+  <!-- Radiating Decorative Dashed Ring -->
+  <circle cx="60" cy="60" r="48" fill="none" stroke="url(#chkGold)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.8" />
+
+  <!-- Main Forest Green Disc -->
+  <circle cx="60" cy="60" r="40" fill="url(#chkGreen)" stroke="url(#chkGold)" stroke-width="2.5" filter="url(#chkShadow)" />
+
+  <!-- Botanical Sprout Leaves -->
+  <path d="M42 34 C36 24, 46 20, 52 24 C50 29, 46 32, 42 34 Z" fill="url(#chkGold)" opacity="0.9" />
+  <path d="M78 34 C84 24, 74 20, 68 24 C70 29, 74 32, 78 34 Z" fill="url(#chkGold)" opacity="0.9" />
+
+  <!-- Inner Gold Checkmark -->
+  <path d="M44 60 L54 70 L77 47" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M44 60 L54 70 L77 47" fill="none" stroke="url(#chkGold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" />
+</svg>
+

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Select Payment Method | NYRVA LIFE – Pure Essence of Herbs</title>
+  <meta name="description" content="Choose your preferred payment method to complete your NYRVA LIFE men's herbal wellness order securely.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Browser Tab Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Client Draft Preview Notice -->
+<div class="draft-bar">
+  <div class="container">
+    <span>⚠️ DRAFT PREVIEW — All prices, ingredients, and policy terms are placeholders pending final confirmation by client.</span>
+  </div>
+</div>
+
+<!-- Top Announcement Bar -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span class="topbar-badge">100% Herbal</span>
+      <span>Pure Essence of Herbs for Men's Wellness &bull; Free Delivery Across India <span class="pending-tag">Pending Confirmation</span></span>
+    </div>
+    <div class="topbar-right">
+      <a href="tel:+918667698604" class="topbar-link">
+        <span>Need Assistance? Call / WhatsApp:</span>
+        <span class="topbar-phone">8667698604</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Header Navigation -->
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo-img" aria-label="NYRVA LIFE Home">
+      <img src="assets/logo.jpeg" alt="NYRVA LIFE – Pure Essence of Herbs">
+    </a>
+
+    <!-- Pure CSS Mobile Toggle (Zero JavaScript) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="my-orders.html" class="nav-account" title="My Account">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span>My Account</span>
+      </a>
+      <a href="my-orders.html" class="nav-auth-link" title="My Orders">My Orders</a>
+      <a class="cart-btn" href="cart.html" title="View Shopping Cart">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        <span>Cart</span>
+        <span class="cart-count">2</span>
+      </a>
+    </div></div>
+</header>
+
+<!-- Breadcrumb Navigation -->
+<div class="page-head" style="padding: 24px 0 20px;">
+  <div class="container">
+    <div class="crumbs">
+      <a href="index.html">Home</a> / <a href="cart.html">Cart</a> / <a href="checkout.html">Checkout</a> / <span>Payment</span>
+    </div>
+  </div>
+</div>
+
+<!-- Main Payment Section -->
+<section class="section" style="padding-top: 36px; padding-bottom: 70px;">
+  <div class="container">
+
+    <!-- Step Progress Stepper (Pure CSS Visual Indicator) -->
+    <div class="payment-step-indicator">
+      <div class="step-item completed">
+        <span class="step-dot">✓</span>
+        <a href="cart.html">Shopping Cart</a>
+      </div>
+      <span>›</span>
+      <div class="step-item completed">
+        <span class="step-dot">✓</span>
+        <a href="checkout.html">Delivery Address</a>
+      </div>
+      <span>›</span>
+      <div class="step-item active">
+        <span class="step-dot">3</span>
+        <span>Payment Method</span>
+      </div>
+      <span>›</span>
+      <div class="step-item">
+        <span class="step-dot">4</span>
+        <span>Order Placed</span>
+      </div>
+    </div>
+
+    <!-- Page Heading & Supporting Text -->
+    <div class="checkout-header-intro">
+      <h1>SELECT PAYMENT METHOD</h1>
+      <p>Choose your preferred payment method to continue with your NYRVA LIFE order.</p>
+    </div>
+
+    <!-- Two-Column Checkout Layout -->
+    <div class="cart-wrap">
+
+      <!-- Left Column: Payment Methods Selection Form -->
+      <div class="checkout-main-col">
+
+        <!-- Payment Option Cards Container -->
+        <div class="payment-methods-list" role="radiogroup" aria-label="Payment method choices">
+
+          <!-- Option 1: UPI Payment (Checked by default) -->
+          <div class="payment-method-item">
+            <input type="radio" name="payment_choice" id="pay-upi" class="payment-method-radio" checked>
+            <label for="pay-upi" class="payment-method-label">
+              <div class="payment-method-header">
+                <span class="custom-radio-mark" aria-hidden="true"></span>
+                <div class="payment-method-icon-wrap">
+                  <img src="assets/images/pay-upi.svg" alt="UPI Payment Icon" width="36" height="36" loading="lazy">
+                </div>
+                <div class="payment-method-meta">
+                  <div class="payment-method-title">
+                    <span>UPI Payment</span>
+                    <span class="pay-badge-popular">Fast &amp; Recommended</span>
+                  </div>
+                  <div class="payment-method-sub">Google Pay, PhonePe, Paytm, BHIM &amp; Any UPI App</div>
+                </div>
+              </div>
+
+              <!-- Collapsible Body (Revealed when radio is checked) -->
+              <div class="payment-method-body">
+                <div class="pay-info-box">
+                  <p><strong>Instant UPI Verification:</strong> Complete your order using your preferred UPI app on your mobile phone or by scanning a dynamic payment QR code.</p>
+                </div>
+
+                <!-- UPI ID Placeholder Field -->
+                <div class="card-field-group" style="margin-bottom: 12px;">
+                  <label for="upi-id-field">Enter Virtual Payment Address (UPI ID)</label>
+                  <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                    <input type="text" id="upi-id-field" class="pay-visual-field" placeholder="e.g. mobileNumber@upi / yourname@okhdfcbank" style="flex: 1; min-width: 220px;" readonly>
+                    <button type="button" class="btn outline" style="padding: 10px 18px; font-size: 0.86rem; cursor: not-allowed; opacity: 0.75;" disabled title="Integration placeholder">Verify ID</button>
+                  </div>
+                  <span style="font-size: 0.78rem; color: var(--muted); display: block; margin-top: 5px;">
+                    *Draft Placeholder: Live merchant UPI VPA will be configured upon payment gateway onboarding.
+                  </span>
+                </div>
+
+                <!-- Dynamic QR Code Integration Placeholder Box -->
+                <div class="qr-placeholder-box">
+                  <div class="qr-box-icon" aria-hidden="true">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="14" width="7" height="7"></rect>
+                      <rect x="3" y="14" width="7" height="7"></rect>
+                      <path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01M10 10h4v4h-4z"></path>
+                    </svg>
+                  </div>
+                  <div style="flex: 1;">
+                    <div style="font-family: var(--font-heading); font-size: 0.96rem; color: var(--green-deep); font-weight: 700; margin-bottom: 2px;">
+                      Dynamic UPI QR Code Generation
+                    </div>
+                    <div style="font-size: 0.84rem; color: var(--muted); line-height: 1.45;">
+                      A dynamic single-use QR code linked to this order will be presented on the confirmation screen for direct scan-and-pay via Google Pay, PhonePe, or Paytm.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Option 2: Debit / Credit Card -->
+          <div class="payment-method-item">
+            <input type="radio" name="payment_choice" id="pay-card" class="payment-method-radio">
+            <label for="pay-card" class="payment-method-label">
+              <div class="payment-method-header">
+                <span class="custom-radio-mark" aria-hidden="true"></span>
+                <div class="payment-method-icon-wrap">
+                  <img src="assets/images/pay-card.svg" alt="Debit and Credit Card Icon" width="36" height="36" loading="lazy">
+                </div>
+                <div class="payment-method-meta">
+                  <div class="payment-method-title">
+                    <span>Debit / Credit Card</span>
+                  </div>
+                  <div class="payment-method-sub">Visa, MasterCard, RuPay, Maestro &amp; American Express</div>
+                </div>
+              </div>
+
+              <!-- Collapsible Body -->
+              <div class="payment-method-body">
+                <div class="pay-info-box">
+                  <p><strong>Secure Card Processing:</strong> Card transactions are tokenized and protected with 256-Bit SSL encryption. We do not store full card numbers or CVV codes.</p>
+                </div>
+
+                <!-- Visual Placeholder Input Fields (Do not collect/store live card data) -->
+                <div class="card-inputs-grid">
+                  <div class="card-field-group full">
+                    <label for="card-num-preview">Card Number</label>
+                    <input type="text" id="card-num-preview" class="pay-visual-field" placeholder="•••• •••• •••• ••••" maxlength="19" readonly>
+                  </div>
+                  <div class="card-field-group full">
+                    <label for="card-name-preview">Cardholder Name</label>
+                    <input type="text" id="card-name-preview" class="pay-visual-field" placeholder="Name as displayed on card" readonly>
+                  </div>
+                  <div class="card-field-group">
+                    <label for="card-exp-preview">Expiry Date</label>
+                    <input type="text" id="card-exp-preview" class="pay-visual-field" placeholder="MM / YY" maxlength="5" readonly>
+                  </div>
+                  <div class="card-field-group">
+                    <label for="card-cvv-preview">CVV / CVC</label>
+                    <input type="password" id="card-cvv-preview" class="pay-visual-field" placeholder="•••" maxlength="4" readonly>
+                  </div>
+                </div>
+
+                <div style="margin-top: 12px; font-size: 0.78rem; color: var(--muted); line-height: 1.45;">
+                  *Visual Design Placeholder: Live card processing and 3D Secure OTP authentication will be routed directly via verified payment gateway upon store integration.
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Option 3: Net Banking -->
+          <div class="payment-method-item">
+            <input type="radio" name="payment_choice" id="pay-bank" class="payment-method-radio">
+            <label for="pay-bank" class="payment-method-label">
+              <div class="payment-method-header">
+                <span class="custom-radio-mark" aria-hidden="true"></span>
+                <div class="payment-method-icon-wrap">
+                  <img src="assets/images/pay-bank.svg" alt="Net Banking Icon" width="36" height="36" loading="lazy">
+                </div>
+                <div class="payment-method-meta">
+                  <div class="payment-method-title">
+                    <span>Net Banking</span>
+                  </div>
+                  <div class="payment-method-sub">Direct internet banking from 50+ supported Indian banks</div>
+                </div>
+              </div>
+
+              <!-- Collapsible Body -->
+              <div class="payment-method-body">
+                <div class="pay-info-box">
+                  <p><strong>Bank Portal Redirect:</strong> Choose your bank below. You will be directed securely to your bank's encrypted internet banking login portal to authorize this purchase.</p>
+                </div>
+
+                <div class="card-field-group">
+                  <label for="bank-select-preview">Select Your Bank</label>
+                  <select id="bank-select-preview" class="pay-visual-field">
+                    <option value="" selected>-- Select from Popular Indian Banks --</option>
+                    <option value="sbi">State Bank of India (SBI)</option>
+                    <option value="hdfc">HDFC Bank</option>
+                    <option value="icici">ICICI Bank</option>
+                    <option value="axis">Axis Bank</option>
+                    <option value="kotak">Kotak Mahindra Bank</option>
+                    <option value="pnb">Punjab National Bank (PNB)</option>
+                    <option value="bob">Bank of Baroda</option>
+                    <option value="canara">Canara Bank</option>
+                    <option value="union">Union Bank of India</option>
+                    <option value="idbi">IDBI Bank</option>
+                    <option value="indusind">IndusInd Bank</option>
+                    <option value="yes">YES Bank</option>
+                    <option value="federal">Federal Bank</option>
+                    <option value="other">Other All Supported Indian Banks...</option>
+                  </select>
+                </div>
+
+                <div style="margin-top: 10px; font-size: 0.78rem; color: var(--muted); line-height: 1.45;">
+                  *Design Preview: Bank redirect handling and secure settlement will be established upon client gateway activation.
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Option 4: Cash on Delivery (COD) -->
+          <div class="payment-method-item">
+            <input type="radio" name="payment_choice" id="pay-cod" class="payment-method-radio">
+            <label for="pay-cod" class="payment-method-label">
+              <div class="payment-method-header">
+                <span class="custom-radio-mark" aria-hidden="true"></span>
+                <div class="payment-method-icon-wrap">
+                  <img src="assets/images/pay-cod.svg" alt="Cash on Delivery Icon" width="36" height="36" loading="lazy">
+                </div>
+                <div class="payment-method-meta">
+                  <div class="payment-method-title">
+                    <span>Cash on Delivery (COD)</span>
+                  </div>
+                  <div class="payment-method-sub">Pay in cash or digital scan upon physical doorstep delivery</div>
+                </div>
+              </div>
+
+              <!-- Collapsible Body -->
+              <div class="payment-method-body">
+                <div class="pay-info-box">
+                  <p><strong>Payment Upon Delivery:</strong> Pay safely in cash or scan the courier's digital QR code when your package arrives at your delivery address.</p>
+                </div>
+
+                <div style="font-size: 0.86rem; color: var(--ink-light); line-height: 1.6;">
+                  <ul style="padding-left: 20px; margin: 8px 0;">
+                    <li>Available across serviceable delivery PIN codes throughout India.</li>
+                    <li>Cash on Delivery availability is subject to client operational confirmation and courier partner coverage.</li>
+                    <li>A brief telephone or WhatsApp confirmation call may be placed prior to package dispatch.</li>
+                  </ul>
+                </div>
+
+                <div style="margin-top: 10px; font-size: 0.78rem; color: var(--muted); font-style: italic;">
+                  *Subject to final commercial terms and logistics partner agreements.
+                </div>
+              </div>
+            </label>
+          </div>
+
+        </div>
+
+        <!-- Security Information Section (SECURE CHECKOUT) -->
+        <div class="pay-security-box">
+          <div class="pay-security-header">
+            <span style="font-size: 1.3rem;">🛡️</span>
+            <h3>SECURE CHECKOUT</h3>
+          </div>
+          <p>Payment processing and customer data protection will be configured during payment gateway integration.</p>
+          <div class="pay-security-badges">
+            <span class="pay-badge-pill">🔒 256-Bit SSL Encryption</span>
+            <span class="pay-badge-pill">🛡️ PCI-DSS Compliant Gateway Ready</span>
+            <span class="pay-badge-pill">🌿 100% Genuine Herbal Formulations</span>
+            <span class="pay-badge-pill">📦 Discreet &amp; Tamper-Evident Packaging</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Order Summary Aside -->
+      <aside class="cart-summary-card">
+        <h3>ORDER SUMMARY</h3>
+
+        <!-- Delivery Address Recap Mini-Card -->
+        <div class="delivery-summary-mini">
+          <div class="delivery-summary-mini-header">
+            <span>Delivering To:</span>
+            <a href="checkout.html" title="Edit address entered in Step 9">Edit Details</a>
+          </div>
+          <div style="color: var(--ink-light); font-size: 0.82rem; line-height: 1.45;">
+            Verified shipping address collected in Step 9 checkout.
+          </div>
+        </div>
+
+        <!-- Representative Sample Cart Products -->
+        <div class="checkout-summary-items">
+
+          <!-- Product 1: Men's Wellness Powder -->
+          <div class="checkout-summary-item">
+            <div class="checkout-item-thumb">
+              <img src="assets/images/product-powder.jpg" alt="Men's Wellness Powder 300 g" loading="lazy">
+            </div>
+            <div class="checkout-item-info">
+              <h4><a href="product-powder.html">Men's Wellness Powder</a></h4>
+              <div class="checkout-item-meta">Pack Size: 300 g &bull; Qty: 1</div>
+            </div>
+            <div class="checkout-item-amount">
+              To be confirmed
+            </div>
+          </div>
+
+          <!-- Product 2: Men's Wellness Capsules -->
+          <div class="checkout-summary-item">
+            <div class="checkout-item-thumb">
+              <img src="assets/images/product-capsules.jpg" alt="Men's Wellness Capsules 30 Count" loading="lazy">
+            </div>
+            <div class="checkout-item-info">
+              <h4><a href="product-capsules.html">Men's Wellness Capsules</a></h4>
+              <div class="checkout-item-meta">Pack Size: 30 Capsules &bull; Qty: 1</div>
+            </div>
+            <div class="checkout-item-amount">
+              To be confirmed
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Summary Cost Lines -->
+        <div class="cart-summary-line">
+          <span>Subtotal (2 Items)</span>
+          <strong style="color: var(--gold-dark);">To be confirmed</strong>
+        </div>
+        <div class="cart-summary-line">
+          <span>Delivery Charges</span>
+          <span style="color: var(--muted); font-style: italic;">To be confirmed</span>
+        </div>
+        <div class="cart-summary-line total">
+          <span>Total Amount</span>
+          <span>To be confirmed</span>
+        </div>
+
+        <!-- Prominent Payment Confirmation Action Button -->
+        <div style="margin-top: 24px;">
+          <a href="order-confirmation.html" class="btn gold block" style="font-size: 1.1rem; padding: 16px 22px; cursor: pointer; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 800; width: 100%; border: none; text-align: center; display: block;">
+            PLACE ORDER
+          </a>
+          <!-- Mandatory Supporting Note Under Button -->
+          <div class="pay-note-under-btn">
+            Your order will be confirmed after successful payment or confirmation of the selected payment method.
+          </div>
+        </div>
+
+        <!-- Secondary WhatsApp Direct Order Alternative -->
+        <div style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-light);">
+          <div style="font-size: 0.82rem; color: var(--muted); text-align: center; margin-bottom: 8px;">
+            Prefer human assistance to complete your purchase?
+          </div>
+          <a class="btn wa block" href="https://wa.me/918667698604" target="_blank" rel="noopener" style="text-align: center; padding: 12px 18px; font-size: 0.92rem;">
+            💬 Order Directly on WhatsApp: 8667698604
+          </a>
+        </div>
+
+        <!-- Return to Checkout / Navigation Link -->
+        <div style="text-align: center; margin-top: 18px;">
+          <a class="crumbs" style="text-decoration: underline; color: var(--green-deep); font-weight: 600; font-size: 0.88rem;" href="checkout.html">
+            ← Back to Delivery Address
+          </a>
+        </div>
+
+        <!-- Trust Notes in Aside -->
+        <div class="cart-trust-notes">
+          <p>🔒 <strong>End-to-End Encrypted</strong></p>
+          <p>🌿 Pure Herbal Essence &bull; Strict Quality Controls</p>
+          <p>📞 Customer Support Helpline: <strong>8667698604</strong></p>
+          <p style="margin-top: 8px; font-style: italic;">*Visual draft preview: No real financial transaction will occur on this page.</p>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- Multi-Section Premium Footer -->
+<footer>
+  <div class="container">
+    <div class="cols">
+      <!-- Col 1: Brand Info -->
+      <div>
+        <div class="footer-logo-wrap" style="margin-bottom: 14px;">
+          <a href="index.html" aria-label="NYRVA LIFE Home">
+            <img src="assets/logo.jpeg" alt="NYRVA LIFE Logo" style="height: 48px; border-radius: var(--radius-sm); border: 1.5px solid var(--gold);">
+          </a>
+        </div>
+        <div class="footer-brand-title">NYRVA LIFE</div>
+        <div class="footer-brand-tagline">PURE ESSENCE OF HERBS</div>
+        <p>Herbal formulations crafted for men's wellness. Starting with our signature powder and capsule formats, with more wellness innovations coming soon.</p>
+        <div style="margin-top: 18px;">
+          <a class="btn wa" href="https://wa.me/918667698604" target="_blank" rel="noopener" style="padding: 8px 16px; font-size: 0.85rem; display: inline-flex;">
+            💬 WhatsApp: 8667698604
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="product-powder.html">Men's Wellness Powder</a></li>
+          <li><a href="product-capsules.html">Men's Wellness Capsules</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Customer Support -->
+      <div>
+        <h4>Customer Support</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="my-orders.html">My Orders</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="cart.html">View Shopping Cart</a></li>
+          <li><a href="checkout.html">Checkout Flow</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Policies -->
+      <div>
+        <h4>Customer Policies</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="shipping-policy.html">Shipping Policy</a></li>
+          <li><a href="return-refund-policy.html">Return &amp; Refund Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: Contact Info -->
+      <div>
+        <h4>Contact &amp; Support</h4>
+        <ul class="footer-contact-list">
+          <li>📞 <div>Phone: <a href="tel:+918667698604">8667698604</a></div></li>
+          <li>💬 <div>WhatsApp: <a href="https://wa.me/918667698604" target="_blank" rel="noopener">8667698604</a></div></li>
+          <li>🏢 <div>Office: <span class="footer-pending">To be shared by client</span></div></li>
+          <li>✉ <div>Email: <span class="footer-pending">To be shared by client</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright & Disclaimer -->
+    <div class="copy">
+      © 2026 NYRVA LIFE. All Rights Reserved. | Pure Essence of Herbs.
+      <div class="copy-disclaimer">
+        *These statements have not been evaluated by any regulatory authority. Herbal products are not intended to diagnose, treat, cure, or prevent any disease. Please consult a qualified healthcare professional before use. All policy details, pricing, and operational terms are draft placeholders pending final client confirmation.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Contact Button -->
+<a class="float-wa" href="https://wa.me/918667698604" target="_blank" rel="noopener" aria-label="Chat with NYRVA LIFE on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-label">Chat on WhatsApp</span>
+</a>
+
+</body>
+</html>

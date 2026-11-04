@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%" fill="none" aria-label="NYRVA LIFE Empty Orders Illustration">
+  <defs>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FDF8E8" />
+    </linearGradient>
+    <linearGradient id="goldRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C768" />
+      <stop offset="50%" stop-color="#C8A02E" />
+      <stop offset="100%" stop-color="#9E781B" />
+    </linearGradient>
+    <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D7A2D" />
+      <stop offset="100%" stop-color="#143D14" />
+    </linearGradient>
+    <filter id="boxShadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#143D14" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Botanical Background Circle -->
+  <circle cx="120" cy="120" r="92" fill="#FDF8E8" stroke="#E6DAB8" stroke-width="2" stroke-dasharray="4 4" />
+
+  <!-- Grounding Shadow -->
+  <ellipse cx="120" cy="192" rx="72" ry="10" fill="#143D14" fill-opacity="0.08" />
+
+  <!-- Botanical Sprigs behind Box -->
+  <path d="M72 118 C58 92, 68 62, 92 56 C90 76, 82 102, 72 118 Z" fill="url(#leafGrad2)" opacity="0.85" />
+  <path d="M168 118 C182 92, 172 62, 148 56 C150 76, 158 102, 168 118 Z" fill="url(#leafGrad2)" opacity="0.85" />
+
+  <!-- Luxury Parcel Box (Isometric Perspective) -->
+  <g filter="url(#boxShadow)">
+    <!-- Box Bottom / Front Face -->
+    <path d="M64 122 L120 152 L176 122 L176 172 L120 202 L64 172 Z" fill="url(#boxGrad)" stroke="#C8A02E" stroke-width="2" />
+    <!-- Front Face Divider -->
+    <path d="M120 152 L120 202" stroke="#E6DAB8" stroke-width="1.5" />
+
+    <!-- Box Top Face / Open Flaps / Lid -->
+    <path d="M64 122 L120 92 L176 122 L120 152 Z" fill="#FFFFFF" stroke="#C8A02E" stroke-width="2" />
+
+    <!-- Gold Ribbon Bands across Top -->
+    <path d="M92 107 L148 137" stroke="url(#goldRibbon)" stroke-width="6" />
+    <path d="M148 107 L92 137" stroke="url(#goldRibbon)" stroke-width="6" />
+
+    <!-- Gold Bow on top of parcel -->
+    <circle cx="120" cy="122" r="7" fill="url(#goldRibbon)" stroke="#143D14" stroke-width="1" />
+    <path d="M120 122 C110 112, 102 115, 108 126 C114 128, 118 124, 120 122 Z" fill="url(#goldRibbon)" />
+    <path d="M120 122 C130 112, 138 115, 132 126 C126 128, 122 124, 120 122 Z" fill="url(#goldRibbon)" />
+
+    <!-- Shipping Tag / Document attached to box -->
+    <g transform="translate(132, 145) rotate(12)">
+      <rect x="0" y="0" width="34" height="24" rx="2" fill="#FAF5E4" stroke="#C8A02E" stroke-width="1.2" />
+      <line x1="6" y1="7" x2="28" y2="7" stroke="#1E5A1E" stroke-width="2" />
+      <line x1="6" y1="13" x2="22" y2="13" stroke="#8A7E64" stroke-width="1.2" />
+      <line x1="6" y1="18" x2="16" y2="18" stroke="#8A7E64" stroke-width="1.2" />
+      <!-- Tag eyelet & string -->
+      <circle cx="3" cy="12" r="1.5" fill="#C8A02E" />
+    </g>
+  </g>
+
+  <!-- Herbal Sparkle Stars -->
+  <path d="M60 76 Q60 84 52 84 Q60 84 60 92 Q60 84 68 84 Q60 84 60 76 Z" fill="url(#goldRibbon)" />
+  <path d="M184 76 Q184 84 176 84 Q184 84 184 92 Q184 84 192 84 Q184 84 184 76 Z" fill="url(#goldRibbon)" />
+</svg>
+
