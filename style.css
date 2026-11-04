@@ -971,6 +971,12 @@ header {
   border-bottom: 1px solid var(--border-light);
 }
 
+.product-card-img-wrap a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .product-card-img-wrap img {
   width: 100%;
   height: 100%;
