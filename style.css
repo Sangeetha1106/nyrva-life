@@ -5963,3 +5963,12 @@ footer p {
     justify-content: center;
   }
 }
+
+/* Guarantee No Draft Bar or Pending Elements Show */
+.draft-bar,
+.pending-tag,
+.footer-pending,
+.badge-pending,
+.policy-callout-pending {
+  display: none !important;
+}
