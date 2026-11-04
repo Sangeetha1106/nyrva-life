@@ -301,10 +301,11 @@ header {
 }
 
 .logo-img img {
-  height: 64px;
+  height: 56px;
   width: auto;
-  mix-blend-mode: multiply;
   object-fit: contain;
+  display: block;
+  background: transparent;
 }
 
 /* Fallback pure-CSS brand mark if used in footer */

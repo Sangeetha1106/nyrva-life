@@ -85,3 +85,4 @@ For product enquiries, client consultations, or order assistance:
 ---
 
 &copy; 2026 NYRVA LIFE. All Rights Reserved. Pure Essence of Herbs.
+
