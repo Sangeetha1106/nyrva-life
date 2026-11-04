@@ -4973,6 +4973,8 @@ footer p {
    20. Floating WhatsApp Contact Button
    -------------------------------------------------------------------------- */
 .float-wa {
+  display: none !important;
+  /* Removed per client request */
   position: fixed;
   right: 24px;
   bottom: 24px;
@@ -5215,6 +5217,8 @@ footer p {
   }
 
   .float-wa {
+  display: none !important;
+  /* Removed per client request */
     right: 16px;
     bottom: 16px;
     padding: 10px 18px;
