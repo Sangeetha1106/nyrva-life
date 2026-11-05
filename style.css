@@ -6338,3 +6338,52 @@ footer p {
   margin-top: 2px;
   display: block;
 }
+
+/* --------------------------------------------------------------------------
+   22. Checkout Form Validation Styles & Error Highlights
+   -------------------------------------------------------------------------- */
+.form-group input.is-invalid,
+.form-group select.is-invalid,
+.form-group textarea.is-invalid {
+  border-color: #d32f2f !important;
+  background-color: #fff8f8 !important;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.16) !important;
+}
+
+.field-error-msg {
+  color: #c62828;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1.35;
+  animation: fadeInError 0.2s ease-in-out;
+}
+
+@keyframes fadeInError {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.checkout-error-banner {
+  background: #fdf2f2;
+  border: 1.5px solid #f5c2c7;
+  border-left: 5px solid #d32f2f;
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  color: #842029;
+  font-size: 0.92rem;
+  font-weight: 600;
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group input.is-valid,
+.form-group select.is-valid {
+  border-color: #2e7d32;
+  background-color: #f9fff9;
+}

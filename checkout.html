@@ -85,7 +85,12 @@
     <!-- Two-Column Checkout Layout -->
     <div class="cart-wrap">
       <!-- Left Column: Form Details -->
-      <form class="checkout-form" action="payment.html" method="get">
+      <form class="checkout-form" id="checkout-form" action="payment.html" method="get" novalidate>
+        <!-- Validation Error Alert Banner -->
+        <div id="checkout-error-banner" class="checkout-error-banner" role="alert">
+          <span style="font-size: 1.15rem;">⚠️</span>
+          <span id="checkout-error-banner-text">Please fill in all required customer and delivery details marked with (*) before proceeding to payment.</span>
+        </div>
         <!-- Returning Customer Notice -->
         <div class="checkout-account-banner">
           <div>
@@ -209,9 +214,9 @@
 
         <!-- Continue to Payment Button (Action) -->
         <div>
-          <a class="btn gold block" href="payment.html" style="font-size: 1.05rem; padding: 16px 24px; text-align: center; letter-spacing: 0.5px;">
+          <button type="submit" id="btn-submit-checkout" class="btn gold block" style="font-size: 1.05rem; padding: 16px 24px; text-align: center; letter-spacing: 0.5px; width: 100%; border: none; cursor: pointer;">
             CONTINUE TO PAYMENT
-          </a>
+          </button>
         </div>
       </form>
 
@@ -265,14 +270,14 @@
         </div>
 
         <!-- Primary Action -->
-        <a class="btn gold block" href="payment.html" style="margin-top: 20px; text-align: center;">
+        <button type="button" id="btn-submit-checkout-aside" class="btn gold block" style="margin-top: 20px; text-align: center; width: 100%; border: none; cursor: pointer;">
           CONTINUE TO PAYMENT
-        </a>
+        </button>
 
-        <!-- Secondary WhatsApp Support Option -->
-        <a class="btn wa block" href="https://wa.me/918667698604" target="_blank" rel="noopener" style="margin-top: 10px; text-align: center;">
+        <!-- Secondary WhatsApp Support Option (Validates details before opening WhatsApp) -->
+        <button type="button" id="btn-order-whatsapp" class="btn wa block" style="margin-top: 10px; text-align: center; width: 100%; border: none; cursor: pointer;">
           💬 Order via WhatsApp: 8667698604
-        </a>
+        </button>
 
         <!-- Trust & Security Badges -->
         <div class="cart-trust-notes">
@@ -360,6 +365,326 @@
     </div>
   </div>
 </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var checkoutForm = document.getElementById("checkout-form");
+  var asidePayBtn = document.getElementById("btn-submit-checkout-aside");
+  var whatsappBtn = document.getElementById("btn-order-whatsapp");
+  var errorBanner = document.getElementById("checkout-error-banner");
+  var errorBannerText = document.getElementById("checkout-error-banner-text");
+
+  // Field Elements
+  var fields = {
+    fullname: document.getElementById("c-fullname"),
+    email: document.getElementById("c-email"),
+    phone: document.getElementById("c-phone"),
+    altPhone: document.getElementById("c-alt-phone"),
+    door: document.getElementById("c-door"),
+    street: document.getElementById("c-street"),
+    city: document.getElementById("c-city"),
+    state: document.getElementById("c-state"),
+    country: document.getElementById("c-country"),
+    pincode: document.getElementById("c-pincode"),
+    landmark: document.getElementById("c-landmark"),
+    notes: document.getElementById("c-notes")
+  };
+
+  // 1. Mobile & PIN Real-time Input Sanitization (Digits only)
+  if (fields.phone) {
+    fields.phone.addEventListener("input", function () {
+      this.value = this.value.replace(/\D/g, "").slice(0, 10);
+      clearFieldError(this);
+    });
+  }
+
+  if (fields.altPhone) {
+    fields.altPhone.addEventListener("input", function () {
+      this.value = this.value.replace(/\D/g, "").slice(0, 10);
+      clearFieldError(this);
+    });
+  }
+
+  if (fields.pincode) {
+    fields.pincode.addEventListener("input", function () {
+      this.value = this.value.replace(/\D/g, "").slice(0, 6);
+      clearFieldError(this);
+    });
+  }
+
+  // Clear errors dynamically on input / change for all fields
+  Object.keys(fields).forEach(function (key) {
+    var el = fields[key];
+    if (el) {
+      el.addEventListener("input", function () {
+        clearFieldError(el);
+      });
+      el.addEventListener("change", function () {
+        clearFieldError(el);
+      });
+    }
+  });
+
+  // 2. Pre-fill form from localStorage if customer previously entered details
+  try {
+    var savedCustomer = localStorage.getItem("nyrva_checkout_customer");
+    if (savedCustomer) {
+      var data = JSON.parse(savedCustomer);
+      if (data.fullname && fields.fullname) fields.fullname.value = data.fullname;
+      if (data.email && fields.email) fields.email.value = data.email;
+      if (data.phone && fields.phone) fields.phone.value = data.phone;
+      if (data.altPhone && fields.altPhone) fields.altPhone.value = data.altPhone;
+      if (data.door && fields.door) fields.door.value = data.door;
+      if (data.street && fields.street) fields.street.value = data.street;
+      if (data.city && fields.city) fields.city.value = data.city;
+      if (data.state && fields.state) fields.state.value = data.state;
+      if (data.country && fields.country) fields.country.value = data.country;
+      if (data.pincode && fields.pincode) fields.pincode.value = data.pincode;
+      if (data.landmark && fields.landmark) fields.landmark.value = data.landmark;
+      if (data.notes && fields.notes) fields.notes.value = data.notes;
+    }
+  } catch (e) {}
+
+  // Helper: set error message on field
+  function setFieldError(fieldEl, message) {
+    if (!fieldEl) return;
+    fieldEl.classList.add("is-invalid");
+    var parent = fieldEl.closest(".form-group");
+    if (!parent) return;
+
+    var existingErr = parent.querySelector(".field-error-msg");
+    if (!existingErr) {
+      var err = document.createElement("div");
+      err.className = "field-error-msg";
+      err.innerHTML = "<span>⚠️</span> " + message;
+      parent.appendChild(err);
+    } else {
+      existingErr.innerHTML = "<span>⚠️</span> " + message;
+    }
+  }
+
+  // Helper: clear error on field
+  function clearFieldError(fieldEl) {
+    if (!fieldEl) return;
+    fieldEl.classList.remove("is-invalid");
+    var parent = fieldEl.closest(".form-group");
+    if (parent) {
+      var existingErr = parent.querySelector(".field-error-msg");
+      if (existingErr) {
+        existingErr.remove();
+      }
+    }
+    // If no more invalid fields, hide top banner
+    var remaining = document.querySelectorAll(".form-group .is-invalid");
+    if (remaining.length === 0 && errorBanner) {
+      errorBanner.style.display = "none";
+    }
+  }
+
+  // 3. Validation Logic
+  function validateCheckout(forWhatsApp) {
+    var isValid = true;
+    var firstInvalidEl = null;
+
+    // Reset previous error messages and banner
+    document.querySelectorAll(".field-error-msg").forEach(function (el) {
+      el.remove();
+    });
+    document.querySelectorAll(".form-group .is-invalid").forEach(function (el) {
+      el.classList.remove("is-invalid");
+    });
+    if (errorBanner) {
+      errorBanner.style.display = "none";
+    }
+
+    // A. Full Name
+    var nameVal = fields.fullname ? fields.fullname.value.trim() : "";
+    if (!nameVal) {
+      setFieldError(fields.fullname, "Full Name cannot be empty.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.fullname;
+    }
+
+    // B. Email Address
+    var emailVal = fields.email ? fields.email.value.trim() : "";
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailVal) {
+      setFieldError(fields.email, "Email Address is required.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.email;
+    } else if (!emailPattern.test(emailVal)) {
+      setFieldError(fields.email, "Please enter a valid email address (e.g. name@example.com).");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.email;
+    }
+
+    // C. Mobile Number (Mandatory, exactly 10 digits)
+    var phoneVal = fields.phone ? fields.phone.value.trim() : "";
+    if (!phoneVal) {
+      setFieldError(fields.phone, "Mobile Number is required.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.phone;
+    } else if (phoneVal.length !== 10 || !/^\d{10}$/.test(phoneVal)) {
+      setFieldError(fields.phone, "Mobile Number must contain exactly 10 digits.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.phone;
+    }
+
+    // D. Alternate Mobile Number (Optional, but if filled must be 10 digits)
+    var altPhoneVal = fields.altPhone ? fields.altPhone.value.trim() : "";
+    if (altPhoneVal && (altPhoneVal.length !== 10 || !/^\d{10}$/.test(altPhoneVal))) {
+      setFieldError(fields.altPhone, "Alternate Mobile Number must contain exactly 10 digits.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.altPhone;
+    }
+
+    // E. House / Door Number (Mandatory)
+    var doorVal = fields.door ? fields.door.value.trim() : "";
+    if (!doorVal) {
+      setFieldError(fields.door, "House / Door Number is required.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.door;
+    }
+
+    // F. Street / Area (Mandatory)
+    var streetVal = fields.street ? fields.street.value.trim() : "";
+    if (!streetVal) {
+      setFieldError(fields.street, "Street / Area is required.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.street;
+    }
+
+    // G. City (Mandatory)
+    var cityVal = fields.city ? fields.city.value.trim() : "";
+    if (!cityVal) {
+      setFieldError(fields.city, "City is required.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.city;
+    }
+
+    // H. State / Province (Mandatory)
+    var stateVal = fields.state ? fields.state.value.trim() : "";
+    if (!stateVal) {
+      setFieldError(fields.state, "State / Province is required.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.state;
+    }
+
+    // I. Country (Mandatory)
+    var countryVal = fields.country ? fields.country.value.trim() : "";
+    if (!countryVal) {
+      setFieldError(fields.country, "Please select a Country.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.country;
+    }
+
+    // J. PIN Code / ZIP Code (Mandatory, 6 digits)
+    var pinVal = fields.pincode ? fields.pincode.value.trim() : "";
+    if (!pinVal) {
+      setFieldError(fields.pincode, "PIN Code / ZIP Code is required.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.pincode;
+    } else if (pinVal.length < 5) {
+      setFieldError(fields.pincode, "Please enter a valid PIN Code / Postal Code.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.pincode;
+    }
+
+    if (!isValid) {
+      if (errorBanner) {
+        if (forWhatsApp) {
+          errorBannerText.textContent = "Please complete all required customer and delivery details above before placing your order via WhatsApp.";
+        } else {
+          errorBannerText.textContent = "Please fill in all required customer and delivery details marked with (*) before proceeding to payment.";
+        }
+        errorBanner.style.display = "flex";
+      }
+
+      // Automatically guide customer to the first invalid field
+      if (firstInvalidEl) {
+        firstInvalidEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(function () {
+          firstInvalidEl.focus();
+        }, 320);
+      }
+      return false;
+    }
+
+    // Preserve entered customer and delivery details in localStorage
+    try {
+      var customerPayload = {
+        fullname: nameVal,
+        email: emailVal,
+        phone: phoneVal,
+        altPhone: altPhoneVal,
+        door: doorVal,
+        street: streetVal,
+        city: cityVal,
+        state: stateVal,
+        country: countryVal,
+        pincode: pinVal,
+        landmark: fields.landmark ? fields.landmark.value.trim() : "",
+        notes: fields.notes ? fields.notes.value.trim() : ""
+      };
+      localStorage.setItem("nyrva_checkout_customer", JSON.stringify(customerPayload));
+    } catch (e) {}
+
+    return true;
+  }
+
+  // 4. Form Submission (Left Column "Continue to Payment" button)
+  if (checkoutForm) {
+    checkoutForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (validateCheckout(false)) {
+        window.location.href = "payment.html";
+      }
+    });
+  }
+
+  // 5. Aside "Continue to Payment" button (Right Column Order Summary)
+  if (asidePayBtn) {
+    asidePayBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (validateCheckout(false)) {
+        window.location.href = "payment.html";
+      }
+    });
+  }
+
+  // 6. WhatsApp Order Button (Validates customer details first)
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (validateCheckout(true)) {
+        var cust = {};
+        try {
+          cust = JSON.parse(localStorage.getItem("nyrva_checkout_customer") || "{}");
+        } catch (e) {}
+
+        var waMessage = "Hi NYRVA LIFE, I would like to place an order:\n\n" +
+          "*Customer Details:*\n" +
+          "• Name: " + (cust.fullname || "") + "\n" +
+          "• Mobile: " + (cust.phone || "") + "\n" +
+          "• Email: " + (cust.email || "") + "\n\n" +
+          "*Delivery Address:*\n" +
+          (cust.door || "") + ", " + (cust.street || "") + ", " + (cust.city || "") + ", " + (cust.state || "") + " - " + (cust.pincode || "") + ", " + (cust.country || "") +
+          (cust.landmark ? " (Landmark: " + cust.landmark + ")" : "") + "\n\n" +
+          "*Order Items:*\n" +
+          "• Men's Wellness Powder (300g) x 1 - ₹2,899\n" +
+          "• Men's Wellness Capsules (30s) x 1 - ₹299\n" +
+          "*Total Amount:* ₹3,198 (Free Delivery)\n\n" +
+          (cust.notes ? "*Special Instructions:* " + cust.notes + "\n\n" : "") +
+          "Please confirm my order.";
+
+        var waUrl = "https://wa.me/918667698604?text=" + encodeURIComponent(waMessage);
+        window.open(waUrl, "_blank");
+      }
+    });
+  }
+});
+</script>
 
 </body>
 </html>

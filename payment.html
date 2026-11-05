@@ -341,10 +341,10 @@
         <div class="delivery-summary-mini">
           <div class="delivery-summary-mini-header">
             <span>Delivering To:</span>
-            <a href="checkout.html" title="Edit address entered in Step 9">Edit Details</a>
+            <a href="checkout.html" title="Edit address entered in checkout">Edit Details</a>
           </div>
-          <div style="color: var(--ink-light); font-size: 0.82rem; line-height: 1.45;">
-            Verified shipping address collected in Step 9 checkout.
+          <div id="payment-delivery-recap" style="color: var(--ink-light); font-size: 0.82rem; line-height: 1.45;">
+            Verified shipping address collected during checkout.
           </div>
         </div>
 
@@ -511,6 +511,28 @@
     </div>
   </div>
 </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  try {
+    var saved = localStorage.getItem("nyrva_checkout_customer");
+    if (saved) {
+      var data = JSON.parse(saved);
+      var recap = document.getElementById("payment-delivery-recap");
+      if (recap && data.fullname) {
+        var addrHtml = "<strong>" + data.fullname + "</strong> &bull; " + data.phone + "<br>" +
+                       data.door + ", " + data.street + "<br>" +
+                       data.city + ", " + data.state + " - " + data.pincode + ", " + data.country;
+        if (data.landmark) {
+          addrHtml += "<br><span style=\"color: var(--muted); font-size: 0.78rem;\">Landmark: " + data.landmark + "</span>";
+        }
+        recap.innerHTML = addrHtml;
+      }
+    }
+  } catch (e) {}
+});
+</script>
 
 </body>
 </html>
