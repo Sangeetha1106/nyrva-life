@@ -151,7 +151,9 @@
           <span class="tagline-badge">PURE ESSENCE OF HERBS</span>
         </div>
 
-        <h1 class="product-title" style="margin-top: 6px; margin-bottom: 8px;">Men's Wellness Powder</h1>
+        <h1 class="product-title" id="product-main-title" style="margin-top: 6px; margin-bottom: 8px;">
+          Men's Wellness Powder <span id="title-pack-badge" style="color: var(--gold-dark); font-size: 1.25rem; font-weight: 600;">(500g)</span>
+        </h1>
 
         <!-- Selected Pack Size -->
         <div class="product-selected-pack">
@@ -175,7 +177,7 @@
         </div>
 
         <!-- Product Description -->
-        <p class="product-neutral-desc" style="line-height: 1.65; color: var(--ink-light); margin-bottom: 20px;">
+        <p class="product-neutral-desc" id="product-desc-text" style="line-height: 1.65; color: var(--ink-light); margin-bottom: 20px;">
           Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.
         </p>
 
@@ -434,61 +436,74 @@
 
 <!-- Interactive Pack Selection & Quantity Script -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   var variants = {
-    '100g': {
-      size: '100g',
-      name: "Men's Wellness Powder (100g)",
-      price: 'Price to be updated',
-      image: 'assets/images/powder-100g.jpg',
-      badge: '100g Pack'
+    "100g": {
+      size: "100g",
+      title: "Men's Wellness Powder (100g)",
+      price: "Price to be updated",
+      image: "assets/images/powder-100g.jpg",
+      badge: "100g Pack",
+      desc: "Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient 100g pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.",
+      trustTag: "📦 Sealed 100g Container Packaging"
     },
-    '250g': {
-      size: '250g',
-      name: "Men's Wellness Powder (250g)",
-      price: 'Price to be updated',
-      image: 'assets/images/powder-250g.jpg',
-      badge: '250g Pack'
+    "250g": {
+      size: "250g",
+      title: "Men's Wellness Powder (250g)",
+      price: "Price to be updated",
+      image: "assets/images/powder-250g.jpg",
+      badge: "250g Pack",
+      desc: "Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient 250g pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.",
+      trustTag: "📦 Sealed 250g Container Packaging"
     },
-    '300g': {
-      size: '300g',
-      name: "Men's Wellness Powder (300g)",
-      price: 'Price to be updated',
-      image: 'assets/images/powder-300g.jpg',
-      badge: '300g Pack'
+    "300g": {
+      size: "300g",
+      title: "Men's Wellness Powder (300g)",
+      price: "Price to be updated",
+      image: "assets/images/powder-300g.jpg",
+      badge: "300g Pack",
+      desc: "Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient 300g pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.",
+      trustTag: "📦 Sealed 300g Container Packaging"
     },
-    '400g': {
-      size: '400g',
-      name: "Men's Wellness Powder (400g)",
-      price: 'Price to be updated',
-      image: 'assets/images/powder-400g.jpg',
-      badge: '400g Pack'
+    "400g": {
+      size: "400g",
+      title: "Men's Wellness Powder (400g)",
+      price: "Price to be updated",
+      image: "assets/images/powder-400g.jpg",
+      badge: "400g Pack",
+      desc: "Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient 400g pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.",
+      trustTag: "📦 Sealed 400g Container Packaging"
     },
-    '500g': {
-      size: '500g',
-      name: "Men's Wellness Powder (500g)",
-      price: 'Price to be updated',
-      image: 'assets/images/powder-500g.jpg',
-      badge: '500g Standard Pack'
+    "500g": {
+      size: "500g",
+      title: "Men's Wellness Powder (500g)",
+      price: "Price to be updated",
+      image: "assets/images/powder-500g.jpg",
+      badge: "500g Standard Pack",
+      desc: "Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient 500g pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.",
+      trustTag: "📦 Sealed 500g Container Packaging"
     }
   };
 
-  var currentPack = '500g';
+  var currentPack = "500g";
   var currentQty = 1;
 
-  var mainImg = document.getElementById('main-product-img');
-  var mainBadge = document.getElementById('main-pack-badge');
-  var selectedPackText = document.getElementById('selected-pack-text');
-  var priceDisplay = document.getElementById('product-price-display');
-  var packCards = document.querySelectorAll('.pack-card');
-  var btnDefault500g = document.getElementById('btn-default-500g');
-  var infoTablePack = document.getElementById('info-table-pack');
-  var qtyInput = document.getElementById('qty-input');
-  var qtyMinus = document.getElementById('qty-minus');
-  var qtyPlus = document.getElementById('qty-plus');
-  var btnAddToCart = document.getElementById('btn-add-to-cart');
-  var btnBuyNow = document.getElementById('btn-buy-now');
-  var cartToast = document.getElementById('cart-toast-msg');
+  var mainImg = document.getElementById("main-product-img");
+  var mainBadge = document.getElementById("main-pack-badge");
+  var titleBadge = document.getElementById("title-pack-badge");
+  var selectedPackText = document.getElementById("selected-pack-text");
+  var priceDisplay = document.getElementById("product-price-display");
+  var descText = document.getElementById("product-desc-text");
+  var trustPackTag = document.getElementById("trust-pack-tag");
+  var infoTablePack = document.getElementById("info-table-pack");
+  var packCards = document.querySelectorAll(".pack-card");
+  var btnDefault500g = document.getElementById("btn-default-500g");
+  var qtyInput = document.getElementById("qty-input");
+  var qtyMinus = document.getElementById("qty-minus");
+  var qtyPlus = document.getElementById("qty-plus");
+  var btnAddToCart = document.getElementById("btn-add-to-cart");
+  var btnBuyNow = document.getElementById("btn-buy-now");
+  var cartToast = document.getElementById("cart-toast-msg");
 
   function selectVariant(packKey) {
     if (!variants[packKey]) return;
@@ -497,16 +512,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Smooth transition on main image
     if (mainImg) {
-      mainImg.style.opacity = '0.35';
+      mainImg.style.opacity = "0.25";
       mainImg.src = data.image;
       mainImg.alt = "NYRVA LIFE Men's Wellness Powder " + data.size;
       setTimeout(function () {
-        mainImg.style.opacity = '1';
+        mainImg.style.opacity = "1";
       }, 140);
     }
 
     if (mainBadge) {
       mainBadge.textContent = data.badge;
+    }
+
+    if (titleBadge) {
+      titleBadge.textContent = "(" + data.size + ")";
     }
 
     if (selectedPackText) {
@@ -517,42 +536,50 @@ document.addEventListener('DOMContentLoaded', function () {
       priceDisplay.textContent = data.price;
     }
 
+    if (descText) {
+      descText.textContent = data.desc;
+    }
+
+    if (trustPackTag) {
+      trustPackTag.textContent = data.trustTag;
+    }
+
     if (infoTablePack) {
       infoTablePack.textContent = data.size;
     }
 
     // Toggle card highlight
     packCards.forEach(function (card) {
-      if (card.getAttribute('data-pack') === packKey) {
-        card.classList.add('selected');
-        card.setAttribute('aria-pressed', 'true');
+      if (card.getAttribute("data-pack") === packKey) {
+        card.classList.add("selected");
+        card.setAttribute("aria-pressed", "true");
       } else {
-        card.classList.remove('selected');
-        card.setAttribute('aria-pressed', 'false');
+        card.classList.remove("selected");
+        card.setAttribute("aria-pressed", "false");
       }
     });
 
     // Toggle 500g default button
     if (btnDefault500g) {
-      if (packKey === '500g') {
-        btnDefault500g.classList.add('active');
+      if (packKey === "500g") {
+        btnDefault500g.classList.add("active");
       } else {
-        btnDefault500g.classList.remove('active');
+        btnDefault500g.classList.remove("active");
       }
     }
   }
 
   // Event listeners for 4 pack cards
   packCards.forEach(function (card) {
-    card.addEventListener('click', function () {
-      var pack = this.getAttribute('data-pack');
+    card.addEventListener("click", function () {
+      var pack = this.getAttribute("data-pack");
       selectVariant(pack);
     });
 
-    card.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        var pack = this.getAttribute('data-pack');
+        var pack = this.getAttribute("data-pack");
         selectVariant(pack);
       }
     });
@@ -560,14 +587,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 500g default button
   if (btnDefault500g) {
-    btnDefault500g.addEventListener('click', function () {
-      selectVariant('500g');
+    btnDefault500g.addEventListener("click", function () {
+      selectVariant("500g");
     });
   }
 
   // Quantity controls
   if (qtyMinus && qtyInput) {
-    qtyMinus.addEventListener('click', function () {
+    qtyMinus.addEventListener("click", function () {
       if (currentQty > 1) {
         currentQty--;
         qtyInput.value = currentQty;
@@ -576,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (qtyPlus && qtyInput) {
-    qtyPlus.addEventListener('click', function () {
+    qtyPlus.addEventListener("click", function () {
       if (currentQty < 10) {
         currentQty++;
         qtyInput.value = currentQty;
@@ -586,9 +613,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add to Cart
   if (btnAddToCart) {
-    btnAddToCart.addEventListener('click', function () {
+    btnAddToCart.addEventListener("click", function () {
       try {
-        localStorage.setItem('nyrva_cart_powder', JSON.stringify({
+        localStorage.setItem("nyrva_cart_powder", JSON.stringify({
           product: "Men's Wellness Powder",
           variant: currentPack,
           quantity: currentQty,
@@ -598,11 +625,11 @@ document.addEventListener('DOMContentLoaded', function () {
       } catch (e) {}
 
       if (cartToast) {
-        cartToast.innerHTML = '✓ Added <strong>' + currentQty + ' × Men's Wellness Powder (' + currentPack + ')</strong> to your cart! <a href="cart.html" style="color: var(--gold-dark); text-decoration: underline; margin-left: 8px; font-weight: 700;">View Cart →</a>';
-        cartToast.style.display = 'block';
+        cartToast.innerHTML = "✓ Added <strong>" + currentQty + " × Men's Wellness Powder (" + currentPack + ")</strong> to your cart! <a href=\"cart.html\" style=\"color: var(--gold-dark); text-decoration: underline; margin-left: 8px; font-weight: 700;\">View Cart →</a>";
+        cartToast.style.display = "block";
         clearTimeout(cartToast._timer);
         cartToast._timer = setTimeout(function () {
-          cartToast.style.display = 'none';
+          cartToast.style.display = "none";
         }, 5000);
       }
     });
@@ -610,9 +637,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Buy Now
   if (btnBuyNow) {
-    btnBuyNow.addEventListener('click', function () {
+    btnBuyNow.addEventListener("click", function () {
       try {
-        localStorage.setItem('nyrva_cart_powder', JSON.stringify({
+        localStorage.setItem("nyrva_cart_powder", JSON.stringify({
           product: "Men's Wellness Powder",
           variant: currentPack,
           quantity: currentQty,
@@ -620,12 +647,12 @@ document.addEventListener('DOMContentLoaded', function () {
           image: variants[currentPack].image
         }));
       } catch (e) {}
-      window.location.href = 'checkout.html?product=powder&variant=' + encodeURIComponent(currentPack) + '&qty=' + currentQty;
+      window.location.href = "checkout.html?product=powder&variant=" + encodeURIComponent(currentPack) + "&qty=" + currentQty;
     });
   }
 
   // Initialize with 500g default
-  selectVariant('500g');
+  selectVariant("500g");
 });
 </script>
 
