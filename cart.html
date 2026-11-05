@@ -110,7 +110,7 @@
           </a>
           <div class="cart-item-details">
             <h3><a href="product-powder.html">Men's Wellness Powder</a></h3>
-            <div class="cart-item-pack">Pack Size: 300 g Container</div>
+            <div class="cart-item-pack" id="cart-powder-pack">Pack Size: 500g Container</div>
             <div class="cart-item-price-tag">
               <span>Price:</span>
               <strong style="color: var(--green-dark); font-size: 1.1rem;">₹999</strong>
@@ -296,5 +296,23 @@
   </div>
 </footer>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  try {
+    var saved = localStorage.getItem('nyrva_cart_powder');
+    if (saved) {
+      var data = JSON.parse(saved);
+      var packEl = document.getElementById('cart-powder-pack');
+      if (packEl && data.variant) {
+        packEl.textContent = 'Pack Size: ' + data.variant + ' Container';
+      }
+      var qtyInputs = document.querySelectorAll('.cart-qty-input');
+      if (qtyInputs.length > 0 && data.quantity) {
+        qtyInputs[0].value = data.quantity;
+      }
+    }
+  } catch (e) {}
+});
+</script>
 </body>
 </html>
