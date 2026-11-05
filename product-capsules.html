@@ -79,63 +79,16 @@
 <section class="section">
   <div class="container">
     <div class="pd">
-      <!-- Left Column: Product Image Gallery -->
-      <div>
-        <div class="product-gallery">
-          <!-- Pure CSS Gallery Slide Selectors -->
-          <input type="radio" name="gallery-radio" id="gal-1" class="gal-radio" checked aria-label="View front packaging">
-          <input type="radio" name="gallery-radio" id="gal-2" class="gal-radio" aria-label="View collection presentation">
-          <input type="radio" name="gallery-radio" id="gal-3" class="gal-radio" aria-label="View botanical ingredients">
-          <input type="radio" name="gallery-radio" id="gal-4" class="gal-radio" aria-label="View formulation craftsmanship">
-
-          <!-- Main Gallery Stage -->
-          <div class="gal-main">
-            <!-- Slide 1: Front Pack -->
-            <div class="gal-slide gal-slide-1">
-              <img src="assets/images/product-capsules.jpg" alt="Men's Wellness Capsules 30 Count Container - Front View" loading="eager">
-              <span class="gallery-badge">30 Capsules Pack</span>
-            </div>
-            <!-- Slide 2: Angled Perspective -->
-            <div class="gal-slide gal-slide-2">
-              <img src="assets/images/capsules-thumb-2.jpg" alt="Men's Wellness Capsules 30 Count Container - Angled Perspective View" loading="lazy">
-              <span class="gallery-badge">Angle View</span>
-            </div>
-            <!-- Slide 3: Bottle & Label Details -->
-            <div class="gal-slide gal-slide-3">
-              <img src="assets/images/capsules-thumb-3.jpg" alt="Men's Wellness Capsules 30 Count Container - Cap & Label Details" loading="lazy">
-              <span class="gallery-badge">Packaging Details</span>
-            </div>
-            <!-- Slide 4: Presentation & Box -->
-            <div class="gal-slide gal-slide-4">
-              <img src="assets/images/capsules-thumb-4.jpg" alt="Men's Wellness Capsules 30 Count Container - Presentation & Packaging Box" loading="lazy">
-              <span class="gallery-badge">Product Presentation</span>
-            </div>
-          </div>
-
-          <!-- Thumbnails Strip -->
-          <div class="gal-thumbs">
-            <label for="gal-1" class="gal-thumb-item" title="View Front Packaging">
-              <img src="assets/images/capsules-thumb-1.jpg" alt="Men's Wellness Capsules 30 Count Front View">
-              <span class="thumb-lbl">Pack</span>
-            </label>
-            <label for="gal-2" class="gal-thumb-item" title="View Angled Perspective">
-              <img src="assets/images/capsules-thumb-2.jpg" alt="Men's Wellness Capsules 30 Count Angled View">
-              <span class="thumb-lbl">Angle</span>
-            </label>
-            <label for="gal-3" class="gal-thumb-item" title="View Bottle & Label Details">
-              <img src="assets/images/capsules-thumb-3.jpg" alt="Men's Wellness Capsules 30 Count Details">
-              <span class="thumb-lbl">Details</span>
-            </label>
-            <label for="gal-4" class="gal-thumb-item" title="View Packaging Presentation">
-              <img src="assets/images/capsules-thumb-4.jpg" alt="Men's Wellness Capsules 30 Count Packaging Box">
-              <span class="thumb-lbl">Packaging</span>
-            </label>
-          </div>
+      <!-- Left Column: Main Product Image -->
+      <div class="main-product-stage">
+        <div class="main-img-frame" style="background: var(--cream-soft); border-radius: 16px; border: 1.5px solid var(--border-gold); padding: 24px; display: flex; align-items: center; justify-content: center; position: relative;">
+          <img id="main-product-img" src="assets/images/product-capsules.jpg" alt="NYRVA LIFE Men's Wellness Capsules 30 Count" loading="eager" style="max-height: 480px; width: 100%; object-fit: contain; display: block;">
+          <span class="main-pack-badge" style="position: absolute; top: 16px; left: 16px; background: var(--gold-dark); color: #fff; font-size: 0.78rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">30 Capsules Pack</span>
         </div>
       </div>
 
       <!-- Right Column: Product Information & Purchase Box -->
-      <div>
+      <div class="product-info-col">
         <div class="product-meta-brand">
           <span class="brand-badge">NYRVA LIFE</span>
           <span class="tagline-sep">•</span>
