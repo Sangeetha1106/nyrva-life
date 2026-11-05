@@ -113,8 +113,8 @@
             <div class="cart-item-pack" id="cart-powder-pack">Pack Size: 500g Container</div>
             <div class="cart-item-price-tag">
               <span>Price:</span>
-              <strong style="color: var(--green-dark); font-size: 1.1rem;">₹999</strong>
-              <span style="font-size: 0.85rem; color: #888; text-decoration: line-through; margin-left: 4px;">₹1,499</span>
+              <strong id="cart-powder-price" style="color: var(--green-dark); font-size: 1.1rem;">₹1,499</strong>
+              <span id="cart-powder-mrp" style="font-size: 0.85rem; color: #888; text-decoration: line-through; margin-left: 4px;">₹2,199</span>
             </div>
           </div>
           <div class="cart-item-actions">
@@ -305,6 +305,14 @@ document.addEventListener('DOMContentLoaded', function () {
       var packEl = document.getElementById('cart-powder-pack');
       if (packEl && data.variant) {
         packEl.textContent = 'Pack Size: ' + data.variant + ' Container';
+      }
+      var priceEl = document.getElementById('cart-powder-price');
+      if (priceEl && data.price) {
+        priceEl.textContent = data.price;
+      }
+      var mrpEl = document.getElementById('cart-powder-mrp');
+      if (mrpEl && data.mrp) {
+        mrpEl.textContent = data.mrp;
       }
       var qtyInputs = document.querySelectorAll('.cart-qty-input');
       if (qtyInputs.length > 0 && data.quantity) {

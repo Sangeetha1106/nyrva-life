@@ -6336,3 +6336,12 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+
+.pack-card-price {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-top: 2px;
+  display: block;
+}

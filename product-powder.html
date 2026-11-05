@@ -91,52 +91,56 @@
           <div class="choose-pack-header">
             <h3 class="choose-pack-heading">CHOOSE YOUR PACK</h3>
             <button type="button" id="btn-default-500g" class="pack-500g-pill active" title="Switch to 500g Standard Pack">
-              <span class="pack-check">✓</span> 500g (Default Pack)
+              <span class="pack-check">✓</span> 500g – ₹1,499 (Default Pack)
             </button>
           </div>
 
           <div class="pack-cards-row">
             <!-- Card 1: 100g -->
-            <div class="pack-card" data-pack="100g" data-img="assets/images/powder-100g.jpg" data-price="Price to be updated" role="button" tabindex="0" aria-label="Select 100g pack size">
+            <div class="pack-card" data-pack="100g" data-img="assets/images/powder-100g.jpg" role="button" tabindex="0" aria-label="Select 100g pack size">
               <span class="pack-card-check">✓</span>
               <div class="pack-card-img-wrap">
                 <img src="assets/images/powder-100g.jpg" alt="Men's Wellness Powder 100g" loading="lazy">
               </div>
               <div class="pack-card-info">
                 <span class="pack-card-size">100g</span>
+                <span class="pack-card-price">₹449</span>
               </div>
             </div>
 
             <!-- Card 2: 250g -->
-            <div class="pack-card" data-pack="250g" data-img="assets/images/powder-250g.jpg" data-price="Price to be updated" role="button" tabindex="0" aria-label="Select 250g pack size">
+            <div class="pack-card" data-pack="250g" data-img="assets/images/powder-250g.jpg" role="button" tabindex="0" aria-label="Select 250g pack size">
               <span class="pack-card-check">✓</span>
               <div class="pack-card-img-wrap">
                 <img src="assets/images/powder-250g.jpg" alt="Men's Wellness Powder 250g" loading="lazy">
               </div>
               <div class="pack-card-info">
                 <span class="pack-card-size">250g</span>
+                <span class="pack-card-price">₹849</span>
               </div>
             </div>
 
             <!-- Card 3: 300g -->
-            <div class="pack-card" data-pack="300g" data-img="assets/images/powder-300g.jpg" data-price="Price to be updated" role="button" tabindex="0" aria-label="Select 300g pack size">
+            <div class="pack-card" data-pack="300g" data-img="assets/images/powder-300g.jpg" role="button" tabindex="0" aria-label="Select 300g pack size">
               <span class="pack-card-check">✓</span>
               <div class="pack-card-img-wrap">
                 <img src="assets/images/powder-300g.jpg" alt="Men's Wellness Powder 300g" loading="lazy">
               </div>
               <div class="pack-card-info">
                 <span class="pack-card-size">300g</span>
+                <span class="pack-card-price">₹999</span>
               </div>
             </div>
 
             <!-- Card 4: 400g -->
-            <div class="pack-card" data-pack="400g" data-img="assets/images/powder-400g.jpg" data-price="Price to be updated" role="button" tabindex="0" aria-label="Select 400g pack size">
+            <div class="pack-card" data-pack="400g" data-img="assets/images/powder-400g.jpg" role="button" tabindex="0" aria-label="Select 400g pack size">
               <span class="pack-card-check">✓</span>
               <div class="pack-card-img-wrap">
                 <img src="assets/images/powder-400g.jpg" alt="Men's Wellness Powder 400g" loading="lazy">
               </div>
               <div class="pack-card-info">
                 <span class="pack-card-size">400g</span>
+                <span class="pack-card-price">₹1,249</span>
               </div>
             </div>
           </div>
@@ -161,13 +165,15 @@
           <strong id="selected-pack-text" class="pack-value">500g</strong>
         </div>
 
-        <!-- Separate Price Field (Price to be updated) -->
+        <!-- Product Price Box -->
         <div class="product-price-box" style="margin-bottom: 14px;">
-          <div class="product-price-main">
-            <span id="product-price-display" class="price-val" style="font-size: 1.35rem; font-weight: 700; color: var(--green-deep);">Price to be updated</span>
+          <div class="product-price-main" style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+            <span id="product-price-display" class="price-val" style="font-size: 1.55rem; font-weight: 800; color: var(--green-deep);">₹1,499</span>
+            <span id="product-mrp-display" style="font-size: 1rem; color: #888; text-decoration: line-through;">₹2,199</span>
+            <span id="product-save-badge" style="font-size: 0.78rem; font-weight: 700; background: #e8f5e9; color: #1e5a1e; padding: 2px 8px; border-radius: 4px; border: 1px solid #c8e6c9;">Save 32%</span>
           </div>
-          <div class="product-price-sub" style="font-size: 0.82rem; color: var(--muted); margin-top: 4px;">
-            Pricing pending final confirmation by client
+          <div class="product-price-sub" style="font-size: 0.84rem; color: var(--muted); margin-top: 5px;">
+            Inclusive of all taxes • Free Delivery across India
           </div>
         </div>
 
@@ -441,7 +447,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "100g": {
       size: "100g",
       title: "Men's Wellness Powder (100g)",
-      price: "Price to be updated",
+      price: "₹449",
+      mrp: "₹599",
+      save: "Save 25%",
       image: "assets/images/powder-100g.jpg",
       badge: "100g Pack",
       desc: "Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient 100g pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.",
@@ -450,7 +458,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "250g": {
       size: "250g",
       title: "Men's Wellness Powder (250g)",
-      price: "Price to be updated",
+      price: "₹849",
+      mrp: "₹1,199",
+      save: "Save 29%",
       image: "assets/images/powder-250g.jpg",
       badge: "250g Pack",
       desc: "Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient 250g pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.",
@@ -459,7 +469,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "300g": {
       size: "300g",
       title: "Men's Wellness Powder (300g)",
-      price: "Price to be updated",
+      price: "₹999",
+      mrp: "₹1,499",
+      save: "Save 33%",
       image: "assets/images/powder-300g.jpg",
       badge: "300g Pack",
       desc: "Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient 300g pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.",
@@ -468,7 +480,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "400g": {
       size: "400g",
       title: "Men's Wellness Powder (400g)",
-      price: "Price to be updated",
+      price: "₹1,249",
+      mrp: "₹1,799",
+      save: "Save 31%",
       image: "assets/images/powder-400g.jpg",
       badge: "400g Pack",
       desc: "Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient 400g pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.",
@@ -477,7 +491,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "500g": {
       size: "500g",
       title: "Men's Wellness Powder (500g)",
-      price: "Price to be updated",
+      price: "₹1,499",
+      mrp: "₹2,199",
+      save: "Save 32%",
       image: "assets/images/powder-500g.jpg",
       badge: "500g Standard Pack",
       desc: "Explore the NYRVA LIFE Men's Wellness Powder, presented in a convenient 500g pack size. Formulated with a natural approach to men's wellness, rooted in traditional herbal botanical wisdom.",
@@ -493,6 +509,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var titleBadge = document.getElementById("title-pack-badge");
   var selectedPackText = document.getElementById("selected-pack-text");
   var priceDisplay = document.getElementById("product-price-display");
+  var mrpDisplay = document.getElementById("product-mrp-display");
+  var saveBadge = document.getElementById("product-save-badge");
   var descText = document.getElementById("product-desc-text");
   var trustPackTag = document.getElementById("trust-pack-tag");
   var infoTablePack = document.getElementById("info-table-pack");
@@ -534,6 +552,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (priceDisplay) {
       priceDisplay.textContent = data.price;
+    }
+
+    if (mrpDisplay) {
+      mrpDisplay.textContent = data.mrp;
+    }
+
+    if (saveBadge) {
+      saveBadge.textContent = data.save;
     }
 
     if (descText) {
@@ -619,13 +645,14 @@ document.addEventListener("DOMContentLoaded", function () {
           product: "Men's Wellness Powder",
           variant: currentPack,
           quantity: currentQty,
-          price: "Price to be updated",
+          price: variants[currentPack].price,
+          mrp: variants[currentPack].mrp,
           image: variants[currentPack].image
         }));
       } catch (e) {}
 
       if (cartToast) {
-        cartToast.innerHTML = "✓ Added <strong>" + currentQty + " × Men's Wellness Powder (" + currentPack + ")</strong> to your cart! <a href=\"cart.html\" style=\"color: var(--gold-dark); text-decoration: underline; margin-left: 8px; font-weight: 700;\">View Cart →</a>";
+        cartToast.innerHTML = "✓ Added <strong>" + currentQty + " × Men's Wellness Powder (" + currentPack + ")</strong> at <strong>" + variants[currentPack].price + "</strong> to your cart! <a href=\"cart.html\" style=\"color: var(--gold-dark); text-decoration: underline; margin-left: 8px; font-weight: 700;\">View Cart →</a>";
         cartToast.style.display = "block";
         clearTimeout(cartToast._timer);
         cartToast._timer = setTimeout(function () {
@@ -643,7 +670,8 @@ document.addEventListener("DOMContentLoaded", function () {
           product: "Men's Wellness Powder",
           variant: currentPack,
           quantity: currentQty,
-          price: "Price to be updated",
+          price: variants[currentPack].price,
+          mrp: variants[currentPack].mrp,
           image: variants[currentPack].image
         }));
       } catch (e) {}
