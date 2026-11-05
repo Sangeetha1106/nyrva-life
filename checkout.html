@@ -59,7 +59,7 @@
       <a class="cart-btn" href="cart.html" title="View Shopping Cart">
         <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         <span>Cart</span>
-        <span class="cart-count">2</span>
+        <span class="cart-count">0</span>
       </a>
     </div></div>
 </header>
@@ -224,41 +224,21 @@
       <aside class="cart-summary-card">
         <h3>ORDER SUMMARY</h3>
 
-        <!-- Representative Sample Cart Products -->
-        <div class="checkout-summary-items">
-          <!-- Item 1: Men's Wellness Powder -->
-          <div class="checkout-summary-item">
-            <div class="checkout-item-thumb">
-              <img src="assets/images/product-powder.jpg" alt="Men's Wellness Powder 300 g" loading="lazy">
-            </div>
-            <div class="checkout-item-info">
-              <h4><a href="product-powder.html">Men's Wellness Powder</a></h4>
-              <div class="checkout-item-meta">Pack: 300 g &bull; Qty: 1</div>
-            </div>
-            <div class="checkout-item-amount" style="font-weight: 700; color: var(--green-dark);">
-              ₹2,899
-            </div>
-          </div>
+        <!-- Dynamic Cart Items Container -->
+        <div id="checkout-summary-items" class="checkout-summary-items">
+          <!-- Dynamically populated from localStorage -->
+        </div>
 
-          <!-- Item 2: Men's Wellness Capsules -->
-          <div class="checkout-summary-item">
-            <div class="checkout-item-thumb">
-              <img src="assets/images/product-capsules.jpg" alt="Men's Wellness Capsules 30 Count" loading="lazy">
-            </div>
-            <div class="checkout-item-info">
-              <h4><a href="product-capsules.html">Men's Wellness Capsules</a></h4>
-              <div class="checkout-item-meta">Pack: 30 Caps &bull; Qty: 1</div>
-            </div>
-            <div class="checkout-item-amount" style="font-weight: 700; color: var(--green-dark);">
-              ₹299
-            </div>
-          </div>
+        <!-- Empty Cart Notice (if visited with 0 items) -->
+        <div id="checkout-empty-notice" style="display: none; padding: 18px 14px; background: #fff8e1; border: 1px solid var(--border-gold); border-radius: var(--radius-sm); margin-bottom: 16px; text-align: center;">
+          <p style="margin-bottom: 10px; font-weight: 600; color: var(--green-deep); font-size: 0.95rem;">Your cart is currently empty.</p>
+          <a href="shop.html" class="btn gold" style="display: inline-block; padding: 8px 18px; font-size: 0.85rem;">Browse Products</a>
         </div>
 
         <!-- Summary Cost Lines -->
         <div class="cart-summary-line">
-          <span>Subtotal (2 Items)</span>
-          <strong style="color: var(--green-dark);">₹3,198</strong>
+          <span id="checkout-summary-count">Subtotal (0 Items)</span>
+          <strong id="checkout-summary-subtotal" style="color: var(--green-dark);">₹0</strong>
         </div>
         <div class="cart-summary-line">
           <span>Delivery Charges</span>
@@ -266,7 +246,7 @@
         </div>
         <div class="cart-summary-line total">
           <span>Total Amount</span>
-          <span style="color: var(--green-dark); font-weight: 700; font-size: 1.25rem;">₹3,198</span>
+          <span id="checkout-summary-total" style="color: var(--green-dark); font-weight: 700; font-size: 1.25rem;">₹0</span>
         </div>
 
         <!-- Primary Action -->
@@ -276,15 +256,15 @@
 
         <!-- Secondary WhatsApp Support Option (Validates details before opening WhatsApp) -->
         <button type="button" id="btn-order-whatsapp" class="btn wa block" style="margin-top: 10px; text-align: center; width: 100%; border: none; cursor: pointer;">
-          💬 Order via WhatsApp: 8667698604
+          📱 Order via WhatsApp: 8667698604
         </button>
 
         <!-- Trust & Security Badges -->
         <div class="cart-trust-notes">
           <p>🔒 <strong>Secure &amp; Encrypted Checkout</strong></p>
           <p>🌿 100% Herbal Products &bull; Discreet Packaging</p>
-          <p>📞 Need assistance with your address? WhatsApp: <strong>8667698604</strong></p>
-          <p style="margin-top: 8px; font-style: italic;">*Pricing, taxes, and shipping fees will be finalized upon commercial store launch.</p>
+          <p>💬 Need assistance with your address? WhatsApp: <strong>8667698604</strong></p>
+          <p style="margin-top: 8px; font-style: italic;">*Free delivery applied on all orders.</p>
         </div>
       </aside>
     </div>
@@ -375,6 +355,140 @@ document.addEventListener("DOMContentLoaded", function () {
   var errorBanner = document.getElementById("checkout-error-banner");
   var errorBannerText = document.getElementById("checkout-error-banner-text");
 
+  // Catalog definition
+  var productCatalog = {
+    powder: {
+      key: "nyrva_cart_powder",
+      title: "Men's Wellness Powder",
+      pack: "Pack: 300 g",
+      priceNum: 2899,
+      priceFormatted: "₹2,899",
+      image: "assets/images/product-powder.jpg",
+      url: "product-powder.html"
+    },
+    capsules: {
+      key: "nyrva_cart_capsules",
+      title: "Men's Wellness Capsules",
+      pack: "Pack: 30 Caps",
+      priceNum: 299,
+      priceFormatted: "₹299",
+      image: "assets/images/product-capsules.jpg",
+      url: "product-capsules.html"
+    },
+    combo: {
+      key: "nyrva_cart_combo",
+      title: "NYRVA LIFE Combo",
+      pack: "Pack: 300g Powder + 30 Caps",
+      priceNum: 2999,
+      priceFormatted: "₹2,999",
+      image: "assets/images/product-combo.jpg",
+      url: "product-combo.html"
+    }
+  };
+
+  function getCartItems() {
+    // If URL has query param from "Buy Now" (e.g. ?product=powder&variant=300g&qty=1)
+    var urlParams = new URLSearchParams(window.location.search);
+    var pParam = urlParams.get("product");
+    var qParam = parseInt(urlParams.get("qty"), 10) || 1;
+    if (pParam && productCatalog[pParam]) {
+      var prod = productCatalog[pParam];
+      if (!localStorage.getItem(prod.key)) {
+        localStorage.setItem(prod.key, JSON.stringify({
+          product: prod.title,
+          variant: prod.pack,
+          quantity: qParam,
+          price: prod.priceFormatted,
+          image: prod.image
+        }));
+      }
+    }
+
+    var items = [];
+    Object.keys(productCatalog).forEach(function (id) {
+      var prod = productCatalog[id];
+      var raw = localStorage.getItem(prod.key);
+      if (raw) {
+        try {
+          var data = JSON.parse(raw);
+          var qty = parseInt(data.quantity, 10) || 1;
+          items.push({
+            id: id,
+            title: prod.title,
+            pack: prod.pack,
+            priceNum: prod.priceNum,
+            priceFormatted: prod.priceFormatted,
+            image: prod.image,
+            url: prod.url,
+            quantity: qty
+          });
+        } catch (e) {}
+      }
+    });
+    return items;
+  }
+
+  function renderCheckoutSummary() {
+    var items = getCartItems();
+    var container = document.getElementById("checkout-summary-items");
+    var emptyNotice = document.getElementById("checkout-empty-notice");
+    var countLabel = document.getElementById("checkout-summary-count");
+    var subtotalLabel = document.getElementById("checkout-summary-subtotal");
+    var totalLabel = document.getElementById("checkout-summary-total");
+
+    var totalQty = 0;
+    var subtotal = 0;
+
+    items.forEach(function (it) {
+      totalQty += it.quantity;
+      subtotal += it.priceNum * it.quantity;
+    });
+
+    if (items.length === 0) {
+      if (container) container.innerHTML = "";
+      if (emptyNotice) emptyNotice.style.display = "block";
+      if (countLabel) countLabel.textContent = "Subtotal (0 Items)";
+      if (subtotalLabel) subtotalLabel.textContent = "₹0";
+      if (totalLabel) totalLabel.textContent = "₹0";
+      if (asidePayBtn) asidePayBtn.disabled = true;
+      var mainSubmitBtn = document.getElementById("btn-submit-checkout");
+      if (mainSubmitBtn) mainSubmitBtn.disabled = true;
+      return items;
+    }
+
+    if (emptyNotice) emptyNotice.style.display = "none";
+    if (asidePayBtn) asidePayBtn.disabled = false;
+    var mainSubmitBtn = document.getElementById("btn-submit-checkout");
+    if (mainSubmitBtn) mainSubmitBtn.disabled = false;
+
+    var html = "";
+    items.forEach(function (item) {
+      var lineAmount = (item.priceNum * item.quantity).toLocaleString("en-IN");
+      html += '<div class="checkout-summary-item">' +
+        '<div class="checkout-item-thumb">' +
+          '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy">' +
+        '</div>' +
+        '<div class="checkout-item-info">' +
+          '<h4><a href="' + item.url + '">' + item.title + '</a></h4>' +
+          '<div class="checkout-item-meta">' + item.pack + ' &bull; Qty: ' + item.quantity + '</div>' +
+        '</div>' +
+        '<div class="checkout-item-amount" style="font-weight: 700; color: var(--green-dark);">' +
+          '₹' + lineAmount +
+        '</div>' +
+      '</div>';
+    });
+
+    if (container) container.innerHTML = html;
+    if (countLabel) countLabel.textContent = "Subtotal (" + totalQty + " Item" + (totalQty > 1 ? "s" : "") + ")";
+    if (subtotalLabel) subtotalLabel.textContent = "₹" + subtotal.toLocaleString("en-IN");
+    if (totalLabel) totalLabel.textContent = "₹" + subtotal.toLocaleString("en-IN");
+
+    return items;
+  }
+
+  // Initial Summary Render
+  renderCheckoutSummary();
+
   // Field Elements
   var fields = {
     fullname: document.getElementById("c-fullname"),
@@ -457,10 +571,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!existingErr) {
       var err = document.createElement("div");
       err.className = "field-error-msg";
-      err.innerHTML = "<span>⚠️</span> " + message;
+      err.innerHTML = "<span>⚠</span> " + message;
       parent.appendChild(err);
     } else {
-      existingErr.innerHTML = "<span>⚠️</span> " + message;
+      existingErr.innerHTML = "<span>⚠</span> " + message;
     }
   }
 
@@ -475,7 +589,6 @@ document.addEventListener("DOMContentLoaded", function () {
         existingErr.remove();
       }
     }
-    // If no more invalid fields, hide top banner
     var remaining = document.querySelectorAll(".form-group .is-invalid");
     if (remaining.length === 0 && errorBanner) {
       errorBanner.style.display = "none";
@@ -484,10 +597,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 3. Validation Logic
   function validateCheckout(forWhatsApp) {
+    var items = getCartItems();
+    if (items.length === 0) {
+      if (errorBanner) {
+        errorBannerText.textContent = "Your shopping cart is currently empty. Please add products to your cart before proceeding.";
+        errorBanner.style.display = "flex";
+      }
+      return false;
+    }
+
     var isValid = true;
     var firstInvalidEl = null;
 
-    // Reset previous error messages and banner
     document.querySelectorAll(".field-error-msg").forEach(function (el) {
       el.remove();
     });
@@ -498,23 +619,27 @@ document.addEventListener("DOMContentLoaded", function () {
       errorBanner.style.display = "none";
     }
 
-    // A. Full Name
+    // A. Full Name (Mandatory)
     var nameVal = fields.fullname ? fields.fullname.value.trim() : "";
     if (!nameVal) {
-      setFieldError(fields.fullname, "Full Name cannot be empty.");
+      setFieldError(fields.fullname, "Full Name is required.");
+      isValid = false;
+      if (!firstInvalidEl) firstInvalidEl = fields.fullname;
+    } else if (nameVal.length < 2) {
+      setFieldError(fields.fullname, "Please enter your full name (minimum 2 characters).");
       isValid = false;
       if (!firstInvalidEl) firstInvalidEl = fields.fullname;
     }
 
-    // B. Email Address
+    // B. Email Address (Mandatory, valid email regex)
     var emailVal = fields.email ? fields.email.value.trim() : "";
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailVal) {
       setFieldError(fields.email, "Email Address is required.");
       isValid = false;
       if (!firstInvalidEl) firstInvalidEl = fields.email;
     } else if (!emailPattern.test(emailVal)) {
-      setFieldError(fields.email, "Please enter a valid email address (e.g. name@example.com).");
+      setFieldError(fields.email, "Please enter a valid email address (e.g., name@example.com).");
       isValid = false;
       if (!firstInvalidEl) firstInvalidEl = fields.email;
     }
@@ -525,7 +650,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setFieldError(fields.phone, "Mobile Number is required.");
       isValid = false;
       if (!firstInvalidEl) firstInvalidEl = fields.phone;
-    } else if (phoneVal.length !== 10 || !/^\d{10}$/.test(phoneVal)) {
+    } else if (phoneVal.length !== 10) {
       setFieldError(fields.phone, "Mobile Number must contain exactly 10 digits.");
       isValid = false;
       if (!firstInvalidEl) firstInvalidEl = fields.phone;
@@ -533,8 +658,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // D. Alternate Mobile Number (Optional, but if filled must be 10 digits)
     var altPhoneVal = fields.altPhone ? fields.altPhone.value.trim() : "";
-    if (altPhoneVal && (altPhoneVal.length !== 10 || !/^\d{10}$/.test(altPhoneVal))) {
-      setFieldError(fields.altPhone, "Alternate Mobile Number must contain exactly 10 digits.");
+    if (altPhoneVal && altPhoneVal.length !== 10) {
+      setFieldError(fields.altPhone, "Alternate Mobile Number must contain exactly 10 digits if provided.");
       isValid = false;
       if (!firstInvalidEl) firstInvalidEl = fields.altPhone;
     }
@@ -601,7 +726,6 @@ document.addEventListener("DOMContentLoaded", function () {
         errorBanner.style.display = "flex";
       }
 
-      // Automatically guide customer to the first invalid field
       if (firstInvalidEl) {
         firstInvalidEl.scrollIntoView({ behavior: "smooth", block: "center" });
         setTimeout(function () {
@@ -657,11 +781,22 @@ document.addEventListener("DOMContentLoaded", function () {
   if (whatsappBtn) {
     whatsappBtn.addEventListener("click", function (e) {
       e.preventDefault();
+      var items = getCartItems();
+      if (items.length === 0) {
+        alert("Your cart is empty. Please add products to your cart before ordering via WhatsApp.");
+        return;
+      }
       if (validateCheckout(true)) {
         var cust = {};
         try {
           cust = JSON.parse(localStorage.getItem("nyrva_checkout_customer") || "{}");
         } catch (e) {}
+
+        var subtotal = 0;
+        var orderLines = items.map(function (it) {
+          subtotal += it.priceNum * it.quantity;
+          return "• " + it.title + " (" + it.pack + ") x " + it.quantity + " - ₹" + (it.priceNum * it.quantity).toLocaleString("en-IN");
+        }).join("\n");
 
         var waMessage = "Hi NYRVA LIFE, I would like to place an order:\n\n" +
           "*Customer Details:*\n" +
@@ -672,9 +807,8 @@ document.addEventListener("DOMContentLoaded", function () {
           (cust.door || "") + ", " + (cust.street || "") + ", " + (cust.city || "") + ", " + (cust.state || "") + " - " + (cust.pincode || "") + ", " + (cust.country || "") +
           (cust.landmark ? " (Landmark: " + cust.landmark + ")" : "") + "\n\n" +
           "*Order Items:*\n" +
-          "• Men's Wellness Powder (300g) x 1 - ₹2,899\n" +
-          "• Men's Wellness Capsules (30s) x 1 - ₹299\n" +
-          "*Total Amount:* ₹3,198 (Free Delivery)\n\n" +
+          orderLines + "\n\n" +
+          "*Total Amount:* ₹" + subtotal.toLocaleString("en-IN") + " (Free Delivery)\n\n" +
           (cust.notes ? "*Special Instructions:* " + cust.notes + "\n\n" : "") +
           "Please confirm my order.";
 
@@ -686,5 +820,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script src="assets/cart-sync.js"></script>
 </body>
 </html>

@@ -59,7 +59,7 @@
       <a class="cart-btn" href="cart.html" title="View Shopping Cart">
         <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         <span>Cart</span>
-        <span class="cart-count">2</span>
+        <span class="cart-count">0</span>
       </a>
     </div></div>
 </header>
@@ -348,43 +348,21 @@
           </div>
         </div>
 
-        <!-- Representative Sample Cart Products -->
-        <div class="checkout-summary-items">
+        <!-- Dynamic Cart Items Container -->
+        <div id="payment-summary-items" class="checkout-summary-items">
+          <!-- Dynamically populated from localStorage -->
+        </div>
 
-          <!-- Product 1: Men's Wellness Powder -->
-          <div class="checkout-summary-item">
-            <div class="checkout-item-thumb">
-              <img src="assets/images/product-powder.jpg" alt="Men's Wellness Powder 300 g" loading="lazy">
-            </div>
-            <div class="checkout-item-info">
-              <h4><a href="product-powder.html">Men's Wellness Powder</a></h4>
-              <div class="checkout-item-meta">Pack Size: 300 g &bull; Qty: 1</div>
-            </div>
-            <div class="checkout-item-amount" style="font-weight: 700; color: var(--green-dark);">
-              ₹2,899
-            </div>
-          </div>
-
-          <!-- Product 2: Men's Wellness Capsules -->
-          <div class="checkout-summary-item">
-            <div class="checkout-item-thumb">
-              <img src="assets/images/product-capsules.jpg" alt="Men's Wellness Capsules 30 Count" loading="lazy">
-            </div>
-            <div class="checkout-item-info">
-              <h4><a href="product-capsules.html">Men's Wellness Capsules</a></h4>
-              <div class="checkout-item-meta">Pack Size: 30 Capsules &bull; Qty: 1</div>
-            </div>
-            <div class="checkout-item-amount" style="font-weight: 700; color: var(--green-dark);">
-              ₹299
-            </div>
-          </div>
-
+        <!-- Empty Cart Notice (if visited with 0 items) -->
+        <div id="payment-empty-notice" style="display: none; padding: 18px 14px; background: #fff8e1; border: 1px solid var(--border-gold); border-radius: var(--radius-sm); margin-bottom: 16px; text-align: center;">
+          <p style="margin-bottom: 10px; font-weight: 600; color: var(--green-deep); font-size: 0.95rem;">Your cart is currently empty.</p>
+          <a href="shop.html" class="btn gold" style="display: inline-block; padding: 8px 18px; font-size: 0.85rem;">Browse Products</a>
         </div>
 
         <!-- Summary Cost Lines -->
         <div class="cart-summary-line">
-          <span>Subtotal (2 Items)</span>
-          <strong style="color: var(--green-dark);">₹3,198</strong>
+          <span id="payment-summary-count">Subtotal (0 Items)</span>
+          <strong id="payment-summary-subtotal" style="color: var(--green-dark);">₹0</strong>
         </div>
         <div class="cart-summary-line">
           <span>Delivery Charges</span>
@@ -392,45 +370,16 @@
         </div>
         <div class="cart-summary-line total">
           <span>Total Amount</span>
-          <span style="color: var(--green-dark); font-weight: 700; font-size: 1.25rem;">₹3,198</span>
+          <span id="payment-summary-total" style="color: var(--green-dark); font-weight: 700; font-size: 1.25rem;">₹0</span>
         </div>
 
-        <!-- Prominent Payment Confirmation Action Button -->
-        <div style="margin-top: 24px;">
-          <a href="order-confirmation.html" class="btn gold block" style="font-size: 1.1rem; padding: 16px 22px; cursor: pointer; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 800; width: 100%; border: none; text-align: center; display: block;">
-            PLACE ORDER
-          </a>
-          <!-- Mandatory Supporting Note Under Button -->
-          <div class="pay-note-under-btn">
-            Your order will be confirmed after successful payment or confirmation of the selected payment method.
-          </div>
+        <!-- WhatsApp Support Mini Banner -->
+        <div class="cart-trust-notes" style="margin-top: 20px;">
+          <p>🔒 <strong>Secure 256-Bit SSL Payment</strong></p>
+          <p>🌿 100% Herbal Products &bull; Discreet Packaging</p>
+          <p>💬 Need payment help? WhatsApp: <strong>8667698604</strong></p>
+          <p style="margin-top: 8px; font-style: italic;">*Free delivery applied on all orders.</p>
         </div>
-
-        <!-- Secondary WhatsApp Direct Order Alternative -->
-        <div style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-light);">
-          <div style="font-size: 0.82rem; color: var(--muted); text-align: center; margin-bottom: 8px;">
-            Prefer human assistance to complete your purchase?
-          </div>
-          <a class="btn wa block" href="https://wa.me/918667698604" target="_blank" rel="noopener" style="text-align: center; padding: 12px 18px; font-size: 0.92rem;">
-            💬 Order Directly on WhatsApp: 8667698604
-          </a>
-        </div>
-
-        <!-- Return to Checkout / Navigation Link -->
-        <div style="text-align: center; margin-top: 18px;">
-          <a class="crumbs" style="text-decoration: underline; color: var(--green-deep); font-weight: 600; font-size: 0.88rem;" href="checkout.html">
-            ← Back to Delivery Address
-          </a>
-        </div>
-
-        <!-- Trust Notes in Aside -->
-        <div class="cart-trust-notes">
-          <p>🔒 <strong>End-to-End Encrypted</strong></p>
-          <p>🌿 Pure Herbal Essence &bull; Strict Quality Controls</p>
-          <p>📞 Customer Support Helpline: <strong>8667698604</strong></p>
-          <p style="margin-top: 8px; font-style: italic;">*Demo Preview: No real financial transaction will occur on this page.</p>
-        </div>
-
       </aside>
 
     </div>
@@ -515,6 +464,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  // 1. Delivery address recap
   try {
     var saved = localStorage.getItem("nyrva_checkout_customer");
     if (saved) {
@@ -531,8 +481,106 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   } catch (e) {}
+
+  // 2. Dynamic Order Items and Total
+  var productCatalog = {
+    powder: {
+      key: "nyrva_cart_powder",
+      title: "Men's Wellness Powder",
+      pack: "Pack: 300 g",
+      priceNum: 2899,
+      priceFormatted: "₹2,899",
+      image: "assets/images/product-powder.jpg",
+      url: "product-powder.html"
+    },
+    capsules: {
+      key: "nyrva_cart_capsules",
+      title: "Men's Wellness Capsules",
+      pack: "Pack: 30 Caps",
+      priceNum: 299,
+      priceFormatted: "₹299",
+      image: "assets/images/product-capsules.jpg",
+      url: "product-capsules.html"
+    },
+    combo: {
+      key: "nyrva_cart_combo",
+      title: "NYRVA LIFE Combo",
+      pack: "Pack: 300g Powder + 30 Caps",
+      priceNum: 2999,
+      priceFormatted: "₹2,999",
+      image: "assets/images/product-combo.jpg",
+      url: "product-combo.html"
+    }
+  };
+
+  var items = [];
+  Object.keys(productCatalog).forEach(function (id) {
+    var prod = productCatalog[id];
+    var raw = localStorage.getItem(prod.key);
+    if (raw) {
+      try {
+        var data = JSON.parse(raw);
+        var qty = parseInt(data.quantity, 10) || 1;
+        items.push({
+          id: id,
+          title: prod.title,
+          pack: prod.pack,
+          priceNum: prod.priceNum,
+          priceFormatted: prod.priceFormatted,
+          image: prod.image,
+          url: prod.url,
+          quantity: qty
+        });
+      } catch (e) {}
+    }
+  });
+
+  var container = document.getElementById("payment-summary-items");
+  var emptyNotice = document.getElementById("payment-empty-notice");
+  var countLabel = document.getElementById("payment-summary-count");
+  var subtotalLabel = document.getElementById("payment-summary-subtotal");
+  var totalLabel = document.getElementById("payment-summary-total");
+
+  var totalQty = 0;
+  var subtotal = 0;
+
+  items.forEach(function (it) {
+    totalQty += it.quantity;
+    subtotal += it.priceNum * it.quantity;
+  });
+
+  if (items.length === 0) {
+    if (container) container.innerHTML = "";
+    if (emptyNotice) emptyNotice.style.display = "block";
+    if (countLabel) countLabel.textContent = "Subtotal (0 Items)";
+    if (subtotalLabel) subtotalLabel.textContent = "₹0";
+    if (totalLabel) totalLabel.textContent = "₹0";
+  } else {
+    if (emptyNotice) emptyNotice.style.display = "none";
+    var html = "";
+    items.forEach(function (item) {
+      var lineAmount = (item.priceNum * item.quantity).toLocaleString("en-IN");
+      html += '<div class="checkout-summary-item">' +
+        '<div class="checkout-item-thumb">' +
+          '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy">' +
+        '</div>' +
+        '<div class="checkout-item-info">' +
+          '<h4><a href="' + item.url + '">' + item.title + '</a></h4>' +
+          '<div class="checkout-item-meta">' + item.pack + ' &bull; Qty: ' + item.quantity + '</div>' +
+        '</div>' +
+        '<div class="checkout-item-amount" style="font-weight: 700; color: var(--green-dark);">' +
+          '₹' + lineAmount +
+        '</div>' +
+      '</div>';
+    });
+    if (container) container.innerHTML = html;
+    if (countLabel) countLabel.textContent = "Subtotal (" + totalQty + " Item" + (totalQty > 1 ? "s" : "") + ")";
+    if (subtotalLabel) subtotalLabel.textContent = "₹" + subtotal.toLocaleString("en-IN");
+    if (totalLabel) totalLabel.textContent = "₹" + subtotal.toLocaleString("en-IN");
+  }
 });
 </script>
 
+<script src="assets/cart-sync.js"></script>
 </body>
 </html>

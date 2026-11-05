@@ -60,7 +60,7 @@
       <a class="cart-btn" href="cart.html" title="View Shopping Cart">
         <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         <span>Cart</span>
-        <span class="cart-count">2</span>
+        <span class="cart-count">0</span>
       </a>
     </div>
   </div>
@@ -434,17 +434,27 @@ document.addEventListener("DOMContentLoaded", function () {
   if (btnAddToCart) {
     btnAddToCart.addEventListener("click", function () {
       try {
+        var existingRaw = localStorage.getItem("nyrva_cart_powder");
+        var newQty = currentQty;
+        if (existingRaw) {
+          var existing = JSON.parse(existingRaw);
+          newQty = Math.min(10, (existing.quantity || 0) + currentQty);
+        }
         localStorage.setItem("nyrva_cart_powder", JSON.stringify({
           product: "Men's Wellness Powder",
           variant: "300g",
-          quantity: currentQty,
+          quantity: newQty,
           price: "₹2,899",
           image: "assets/images/product-powder.jpg"
         }));
       } catch (e) {}
 
+      if (window.updateNyrvaCartBadge) {
+        window.updateNyrvaCartBadge();
+      }
+
       if (cartToast) {
-        cartToast.innerHTML = "✓ Added <strong>" + currentQty + " × Men's Wellness Powder (300g)</strong> at <strong>₹2,899</strong> to your cart! <a href=\"cart.html\" style=\"color: var(--gold-dark); text-decoration: underline; margin-left: 8px; font-weight: 700;\">View Cart →</a>";
+        cartToast.innerHTML = "✓ Added <strong>" + currentQty + " × Men's Wellness Powder (300g)</strong> at <strong>₹2,899</strong> to your cart! <a href='cart.html' style='color: var(--gold-dark); text-decoration: underline; margin-left: 8px; font-weight: 700;'>View Cart →</a>";
         cartToast.style.display = "block";
         clearTimeout(cartToast._timer);
         cartToast._timer = setTimeout(function () {
@@ -458,19 +468,30 @@ document.addEventListener("DOMContentLoaded", function () {
   if (btnBuyNow) {
     btnBuyNow.addEventListener("click", function () {
       try {
+        var existingRaw = localStorage.getItem("nyrva_cart_powder");
+        var newQty = currentQty;
+        if (existingRaw) {
+          var existing = JSON.parse(existingRaw);
+          newQty = Math.min(10, (existing.quantity || 0) + currentQty);
+        }
         localStorage.setItem("nyrva_cart_powder", JSON.stringify({
           product: "Men's Wellness Powder",
           variant: "300g",
-          quantity: currentQty,
+          quantity: newQty,
           price: "₹2,899",
           image: "assets/images/product-powder.jpg"
         }));
       } catch (e) {}
+
+      if (window.updateNyrvaCartBadge) {
+        window.updateNyrvaCartBadge();
+      }
       window.location.href = "checkout.html?product=powder&variant=300g&qty=" + currentQty;
     });
   }
 });
 </script>
 
+<script src="assets/cart-sync.js"></script>
 </body>
 </html>
